@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+{% load static %}
+  <title></title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <script src="https://kit.fontawesome.com/6f277702bf.js" crossorigin="anonymous"></script>
+
+  <style>
+
+    .info{
+      font-family: serif;
+
+      font-size: 30px;
+	
+		  width: 101%;
+	
+		  background-color: #dc3545;
+	
+		  align-items: center;
+	
+		  word-spacing: 0.6rem;
+	
+		  color: #fff;
+    }
+
+		.log{
+
+			color: #fff;
+  
+  		position: absolute;
+  
+  		left: 1450px;
+  
+  		top: 10px;
+  	
+    	}
+
+		.log .z{
+  		
+      color: #fff;
+		
+    }
+
+		.login-form-1{
+  	
+    	position: absolute;
+  		
+    	top: 150px;
+  			
+      left: 350px;
+    	
+    	padding: 5%;
+  
+  		background: #fff;
+  
+   		border: 3px solid #f1f1f1;
+  
+   		z-index: 9;
+
+  		width:55%;
+
+  		box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+		
+    }
+
+		.login-form-2{
+  	
+    	position: absolute;
+  	
+  		top: 100px;
+  	
+    	left: 813px;
+    	
+    	padding: 5%;
+    	
+    	background: #fff;
+    
+    	border: 3px solid #f1f1f1;
+    	
+    	width:45%;
+		
+    }
+
+		.login-form-1 .btnSubmit{
+  	
+    	background-color: #4CAF50;
+  		
+      color: white;
+  		
+      padding: 10px 40px;
+  		
+      border: none;
+  		
+      cursor: pointer;
+  		
+      width: 18%;
+  		
+      margin-bottom:10px;
+  		
+      margin-left: 5px;
+  		
+      opacity: 0.8;
+		
+    }
+
+		.form-container input[type=text] , .form-container input[type=number], .form-container input[type=date],.form-container input[type=tel], .form-container input[type=email] {
+      
+      width: 50%;
+  		
+      padding: 15px;
+  		
+      margin: 5px 0 22px 0;
+  		
+      border: none;
+			
+      background: #f1f1f1;
+
+		}
+
+		.title input[type=text]{
+		
+    	width: 107%;
+			
+      padding: 15px;
+			
+      margin: 5px 0 22px 0;
+			
+      border: none;
+			
+      background: #f1f1f1;
+		
+    }
+
+		.f1{
+  		
+      width: 50%;
+  		
+      padding: 20px;
+			
+      margin: 5px 0 22px 0;
+  		
+      border: none;
+  		
+      background: #f1f1f1;
+	
+  	}
+
+		.styled-select-select {
+  	
+    	text-align: center;
+  		
+      background: #f1f1f1;
+			
+      padding: 10px 40px;
+    	
+      border: none;
+  		
+      cursor: pointer;
+			
+      width: 50%;
+  		
+      opacity: 0.8
+	
+  	}
+
+		.id{
+  	
+    	position: absolute;
+  		
+      top: 110px;
+			
+      left: 450px;
+		
+    }
+
+		.id input[type=date]{
+  	
+    	width:130%;
+  		
+      padding: 15px;
+  		
+      margin: 5px 0 22px 0;
+  		
+      border: none;
+  		
+      background: #f1f1f1;
+   	
+    }
+
+		.contact{
+  	
+    	position: absolute;
+  		
+      top: 900px;
+  		
+      left: 450px;
+		}
+
+		.contact input[type=tel]{
+  		
+      width:90%;
+  		
+      padding: 15px;
+  		
+      margin: 5px 0 22px 0;
+  		
+      border: none;
+  		
+      background: #f1f1f1;
+	
+  	}
+
+		.pin{
+  	
+    	position: absolute;
+  		
+      top: 1200px;
+  		
+      left: 450px;
+		
+    }
+
+		.pin input[type=number]{
+  	
+    	width:90%;
+  		
+      padding: 15px;
+  		
+      margin: 5px 0 22px 0;
+  		
+      border: none;
+  		
+      background: #f1f1f1;
+		
+    }
+
+		.id1{
+  		
+      position: absolute;
+  		
+    	top: 360px;
+  	
+    	left: 450px;
+		
+    }
+
+		.id1 input[type=date]{
+		
+    	width:130%;
+  	
+    	padding: 15px;
+  	
+    	margin: 5px 0 22px 0;
+  	
+    	border: none;
+  	
+    	background: #f1f1f1;
+  	
+    	}
+
+		.a1 input[type = text]{
+  			width: 107%;
+  			padding: 15px;
+  			margin: 5px 0 22px 0;
+  			border: none;
+  			background: #f1f1f1;
+		}
+
+		.a1 input[type = email]{
+  			width: 107%;
+  			padding: 15px;
+  			margin: 5px 0 22px 0;
+  			border: none;
+  			background: #f1f1f1;
+		}
+
+
+		.a1 input[type = number]{
+  	
+    	width: 107%;
+  		padding: 15px;
+  		margin: 5px 0 22px 0;
+  		border: none;
+  		background: #f1f1f1;
+		
+    }
+
+		.a2 input[type = tel]{
+
+    	width: 107%;
+  		padding: 15px;
+  		margin: 5px 0 22px 0;
+  		border: none;
+  		background: #f1f1f1;
+
+    }
+    .login-form-1 .btn{
+  		
+      background-color: #4CAF50;
+  		color: white;
+  		padding: 10px 20px;
+  		border: none;
+			cursor: pointer;
+  		width: 18%;
+  		margin-bottom:10px;
+  		margin-left: 5px;
+  		opacity: 0.8;
+		
+    }
+	
+		.login-form-1 .btn_cancel{
+  			background-color: red;
+  			color: white;
+  			padding: 10px 10px;
+  			border: none;
+  			cursor: pointer;
+  			width: 20%;
+  			margin-bottom:10px;
+  			margin-left: 5px;
+  			opacity: 0.8;
+		
+    }
+	
+		a{
+  	 
+      color: white;
+		
+    }
+
+		.s1{
+  		
+      width: 100%;
+  		margin-left: 5px;
+  		padding: 5px 50px;
+		
+    }
+
+		@media (max-width: 996px) {
+			
+      .info{
+				
+      text-align: center;
+			
+      }
+  		
+      .log{
+    	
+      	position: absolute;
+    	
+      	left:800px;
+  		
+    	}
+  		
+      .login-form-1 .btn{
+  		
+    		width: 40%;
+  		
+    	}
+  		
+    	.login-form-1 .btn_cancel{
+    	
+    		width: 30%;
+  		
+    	}
+  		
+      }
+  	
+    </style>
+
+</head>
+
+<body>
+
+  <div class="container-fluid p3 info">
+
+
+    <div class="row">
+
+      <div class="col d-flex justify-content-center align-items-center flex-wrap">
+
+        <h2 class="primary-color info p-2 text-capitalize"><center>Employee Master<center>
+
+        </h2>
+
+        <div class="container ml-auto">
+
+           <form action="/handle_logout" method="POST">
+  {%csrf_token%}
+          <button type="submit"  class="btn btn-outline-dark align-items-end log" onclick="warn()">Log Out</button></a>
+</form>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="container">
+    <div style="position:absolute;top:50%;left:50%;margin:-100px 0 0 -150px;">
+        {% for message in messages %}
+      <h6><i><font color="black">{{message}}</font></i></h6>
+        {% endfor %}</div>
+
+    <div class="row">
+
+      <div class="col-md-6 login-form-1">
+
+        <h3 class="head">Employee Form
+
+        </h3>
+
+        <form id="hide"  class="form-container" action="/add_employ"  method="POST">
+            {%csrf_token%}
+
+          <div class="form-group">
+
+            <label >Employee ID</label>
+    					
+            <input type="text" name="emp_id" class="form-control" placeholder="Employee ID" value="" required/>
+
+          </div>
+    			
+    			<div class="form-group id">
+
+            <label >Date of Joining</label>
+            
+            <input type="date" name="dof_join" class="form-control" placeholder="Date of Joining*" value=""  required/>
+            
+          </div>
+                
+          <div class="form-group title">
+
+            <label >Employee Name</label>
+
+          	<input type="text" name="emp_name" class="form-control" style="text-transform: capitalize;"  placeholder="Employee Name*" value=""  required/>
+                
+          </div>
+
+
+
+          <div class="form-group">
+
+            <label >Gender</label><br>
+            
+            <input type="radio" id="male" name="gender" value="male" checked>
+            
+            <label for="male">Male</label><br>
+                   		
+            <input type="radio" id="female"  name="gender" value="female">
+            
+            <label for="female">Female</label>
+                
+          </div>
+
+          <div class="form-group id1">
+
+            <label >Date of Birth</label>
+            
+            <input type="date" name="dob" class="form-control" placeholder="Date of Birth*" value="" required />
+                
+          </div>
+                
+          <div class="form-group a1">
+
+            <label >Father Name</label>
+            
+            <input type="text" name="fname" class="form-control"  style="text-transform: capitalize;" placeholder="Father Name *" value="" />
+                
+          </div>
+                
+          <div class="form-group a1">
+
+            <label >Spouse Name</label>
+            
+            <input type="text" name="spouse_name" class="form-control" style="text-transform: capitalize;"  placeholder="Spouse Name *" value="" />
+                
+          </div>
+
+          <div class="form-group a1">
+
+            <label >Email</label>
+            
+            <input type="email" name="email" class="form-control" placeholder="Email *" value="" required />
+                
+          </div>
+
+          <div class="form-group a2">
+
+            <label >Contact </label>
+                      
+            <input type="tel" name="contact" class="form-control" placeholder="Contact(P)" value="" required />
+                
+          </div>
+
+
+          <div class="form-group a1" >
+
+            <label >Address</label>
+                    	
+            <input type="text" name="address1" class="form-control"  style="text-transform: capitalize;" placeholder="Address*" value="" required />
+                    	
+
+                
+          </div>
+
+          <div class="form-group a1">
+
+            <label >City</label>
+            
+            <input type="text" name="city" class="form-control"  style="text-transform: capitalize;" placeholder="City" value=""  required/>
+                
+          </div>
+
+
+
+          <div class="form-group a1">
+
+          	<label >State</label>
+            
+            <input type="text" name="state" class="form-control" style="text-transform: capitalize;"  placeholder="State *" value="" required />
+                
+        	</div>
+
+          <div class="form-group">
+                
+            <label >Has Left</label><br>
+            
+            <input type="radio" id="no" name="has_left" value="no" checked>
+          
+            <label for="no">No</label><br>
+            
+            <input type="radio" id="yes"  name="has_left" value="yes">
+            
+            <label for="yes">Yes</label>
+                
+          </div>
+
+          <div class="form-group">
+                
+            <label >Teaching Staff</label><br>
+                    
+            <input type="radio" id="No" name="incharge" value="No" checked>
+          
+            <label for="No">No</label><br>
+            
+            <input type="radio" id="Yes"  name="incharge" value="Yes">
+            
+            <label for="Yes">Yes</label>
+                
+          </div>
+
+          <div class="form-group">
+              	
+            <button type="submit" class="btn" >Save</button>
+                  		
+            <a href="/update_employ"><button type="button" class="btn" >Edit</button>
+
+            <a href="/main">  <button type="button" class="btn btn_cancel">Close</button></a>
+
+          </div>
+        
+        </form>
+      
+      </div>
+    
+    </div>
+  
+  </div>
+
+ <!-- <div class="container">
+
+    <div class="row">
+
+      <div class="col-md-6 login-form-2">
+
+        <h3>Search using below Bar</h3>
+
+        <div>
+
+          <input type="text" id="one" placeholder="Title">
+
+          <input type="text" id="three" placeholder="Author Name">
+              
+          <button class="btn-dark"onclick="add()">Search</button>
+
+          <table class="table table-bordered">
+
+            <thead>
+
+              <th>Accession no.</th>
+              
+              <th>title</th>
+              
+              <th>Author</th>
+              
+              <th>publisher</th>
+              
+              <th>edition</th>
+
+            </thead>
+
+            <tbody id="data">
+              
+            </tbody>
+
+          </table>
+              	
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>-->
+
+  <script>
+
+    function closeForm() {
+
+      document.getElementById("return").style.display = "none";
+
+    }
+        
+    function delete() {
+
+      document.getElementById("hide").style.display="none";
+
+    }
+        
+
+
+    function warn() {
+
+      confirm("Do you really want to log out of this session!!!");
+    
+    }
+
+    var newone=[]
+        
+    var newthree=[]
+
+    function add(){
+
+      var one=document.getElementById('one').value;
+      
+      newone.push(one);
+      
+      newone.push(three);
+      
+      listshow();
+    }
+
+    function listshow(){
+
+      var list=""
+
+      for(var i=0;i<newone.length;i++){list+= "<tr><td>"+(i+1)+"</td>"+"<td>"+newone[i]+"</td>"+"<td>"+newtwo[i]+"</td>"+"<td>"+newthree[i]+"</td>"+"<td>"+"<button onclick='edt("+i+")'>Edit</button><button onclick='del("+i+")'>Delete</button>"+"</td></tr>"
+    }
+
+    document.getElementById('data').innerHTML=list
+    }
+  
+  </script>
+
+</body>
+
+</html>

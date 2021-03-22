@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     {% load static %}
+    <meta charset="UTF-8">
+    <title>barcode</title>
+</head>
+<body>
+<table id="test">
+
+    <tr>
+
+<td>
+{% for i in list %}
+
+        {% static "" as baseurl %}
+
+        <img src="{{baseurl}}{{i}}" alt="image" width="200px" height="100px">
+
+
+
+{% endfor %}
+</td>
+
+    </tr>
+
+
+</table>
+<input type="button" id="btnExport" class="btn"  onclick="pdf()" value="Print" />
+
+<!--<a href="/main"><input type="button" class="btn" value="Back" /></a>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+
+<script type="text/javascript">
+        $("body").on("click", "#btnExport", function () {
+            html2canvas($('#test')[0], {
+                onrendered: function (canvas) {
+                    var data = canvas.toDataURL();
+                    var docDefinition = {
+                        content: [{
+                            image: data,
+                            width: 500
+                        }]
+                    };
+                    pdfMake.createPdf(docDefinition).download("barcode.pdf");
+                }
+            });
+        });
+    </script>-->
+
+<script type="text/javascript">
+    function pdf(){
+    window.print();
+}
+</script>
+</body>
+
+
+</html>

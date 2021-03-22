@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title></title>
+<link rel="stylesheet" href="css/styles1.css">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+.info{
+  font-family: serif;
+  font-size: 25px;
+  background-color:#dc3545;
+  padding: 10px 630px;
+    word-spacing: 0.6rem;
+    color: #fff;
+}
+.log{
+
+  position: absolute;
+  left: 400px;
+  top: 10px;
+}
+.open-button1 {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  top:500px;
+  left:300px;
+  position: absolute;
+  width: 280px;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: absolute;
+  top:140px;
+  left: 750px;
+  border: 2.5px solid #f1f1f1;
+  z-index: 9;
+  width:40%
+}
+
+.form-popup1 {
+
+  display: none;
+  position: absolute;
+  top:300px;
+  left: 450px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+  width:35%;
+}
+
+/* Add styles to the form container */
+.form-container {
+  position: relative;
+  max-width: 100%;
+  padding: 5px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=text], .form-container input[type=date], .form-container input[type=email], .form-container input[type=tel]  {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 10px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus,.form-container input[type=date]:focus, .form-container input[type=text]:focus {
+  background-color: #ddd;
+  width: 60%;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+
+
+.btn-title {
+   background-color: #4CAF50;
+   color: white;
+   padding: 16px 10px;
+   border: none;
+   position: absolute;
+   top: 120px;
+   left: 140px;
+   border-radius: 5%;
+   cursor: pointer;
+   width: 18%;
+   margin:10px 10px;
+   opacity: 0.8;
+ }
+ .btn-author {
+     background-color: #4CAF50;
+     color: white;
+     padding: 16px 10px;
+     border: none;
+     position: absolute;
+     top: 120px;
+     left: 420px;
+     border-radius: 5%;
+     cursor: pointer;
+     width: 18%;
+     margin:10px 10px;
+     opacity: 0.8;
+   }
+  .btn-classification {
+      background-color: #4CAF50;
+      color: white;
+      padding: 16px 10px;
+      border: none;
+      position: absolute;
+      top: 180px;
+      left: 140px;
+      border-radius: 5%;
+      cursor: pointer;
+      width: 18%;
+      margin:10px 10px;
+      opacity: 0.8;
+    }
+.btn-publication {
+   background-color: #4CAF50;
+   color: white;
+   padding: 16px 10px;
+   border: none;
+   position: absolute;
+   top: 180px;
+   left: 420px;
+   border-radius: 5%;
+   cursor: pointer;
+   width: 18%;
+   margin:10px 10px;
+   opacity: 0.8;
+ }
+
+ .btn-category {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 10px;
+    border: none;
+    position: absolute;
+    top: 240px;
+    left: 140px;
+    border-radius: 5%;
+    cursor: pointer;
+    width: 18%;
+    margin:10px 10px;
+    opacity: 0.8;
+  }
+
+ .btn-year {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 10px;
+    border: none;
+    position: absolute;
+    top: 240px;
+    left: 420px;
+    border-radius: 5%;
+    cursor: pointer;
+    width: 18%;
+    margin:10px 10px;
+    opacity: 0.8;
+  }
+
+ .btn-pages {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 10px;
+    border: none;
+    position: absolute;
+    top: 300px;
+    left: 140px;
+    border-radius: 5%;
+    cursor: pointer;
+    width: 18%;
+    margin:10px 10px;
+    opacity: 0.8;
+  }
+
+ .btn-cost {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 10px;
+    border: none;
+    position: absolute;
+    top: 300px;
+    left: 420px;
+    border-radius: 5%;
+    cursor: pointer;
+    width: 18%;
+    margin:10px 10px;
+    opacity: 0.8;
+  }
+
+ .btn-edition {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 10px;
+    border: none;
+    position: absolute;
+    top: 360px;
+    left: 140px;
+    border-radius: 5%;
+    cursor: pointer;
+    width: 18%;
+    margin:10px 10px;
+    opacity: 0.8;
+  }
+
+  .btn-copies {
+   background-color: #4CAF50;
+   color: white;
+   padding: 16px 10px;
+   border: none;
+   position: absolute;
+   top: 360px;
+   left: 420px;
+   border-radius: 5%;
+   cursor: pointer;
+   width: 18%;
+   margin:10px 10px;
+   opacity: 0.8;
+ }
+.btn-address {
+   background-color: #4CAF50;
+   color: white;
+   padding: 16px 10px;
+   border: none;
+   position: absolute;
+   top: 360px;
+   left: 140px;
+   border-radius: 5%;
+   cursor: pointer;
+   width: 18%;
+   margin:10px 10px;
+   opacity: 0.8;
+ }
+ .btn-author1 {
+     background-color: #4CAF50;
+     color: white;
+     padding: 16px 10px;
+     border: none;
+     position: absolute;
+     top: 360px;
+     left: 420px;
+     border-radius: 5%;
+     cursor: pointer;
+     width: 18%;
+     margin:10px 10px;
+     opacity: 0.8;
+   }
+  
+ .btn-category1 {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 10px;
+    border: none;
+    position: absolute;
+    top: 420px;
+    left: 140px;
+    border-radius: 5%;
+    cursor: pointer;
+    width: 18%;
+    margin:10px 10px;
+    opacity: 0.8;
+  }
+
+ .btn-year1 {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 10px;
+    border: none;
+    position: absolute;
+    top: 420px;
+    left: 420px;
+    border-radius: 5%;
+    cursor: pointer;
+    width: 18%;
+    margin:10px 10px;
+    opacity: 0.8;
+  }
+
+ .btn-pages1 {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 10px;
+    border: none;
+    position: absolute;
+    top: 480px;
+    left: 140px;
+    border-radius: 5%;
+    cursor: pointer;
+    width: 18%;
+    margin:10px 10px;
+    opacity: 0.8;
+  }
+
+ .btn-cost1 {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 10px;
+    border: none;
+    position: absolute;
+    top: 540px;
+    left: 420px;
+    border-radius: 5%;
+    cursor: pointer;
+    width: 18%;
+    margin:10px 10px;
+    opacity: 0.8;
+  }
+
+ .btn-edition1 {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 10px;
+    border: none;
+    position: absolute;
+    top: 480px;
+    left: 140px;
+    border-radius: 5%;
+    cursor: pointer;
+    width: 37.5%;
+    margin:10px 10px;
+    opacity: 0.8;
+  }
+
+  .btn-copies1 {
+   background-color: #4CAF50;
+   color: white;
+   padding: 16px 10px;
+   border: none;
+   position: absolute;
+   top: 870px;
+   left: 420px;
+   border-radius: 5%;
+   cursor: pointer;
+   width: 15%;
+   margin:10px 10px;
+   opacity: 0.8;
+ }
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+
+</style>
+  </head>
+  <body>
+    <div class="container-fluid p3 info">
+      <div class="row">
+        <div class="col d-flex justify-content-between align-items-baseline flex-wrap">
+          <h2 class="primary-color info p-2 text-capitalize">Student Manager</h2>
+          <div class="container ml-auto">
+           <form action="/handle_logout" method="POST">
+  {%csrf_token%}
+          <button type="submit"  class="btn btn-outline-dark align-items-end log" onclick="warn()">Log Out</button></a>
+</form>    </div>
+        </div>
+      </div>
+    </div>
+
+
+        <button type="button" class="btn-title" onclick="openForm()">Modify D.O.A</button>
+        <button type="button" class="btn-author" onclick="openForm2()">Modify Name</button>
+        <button type="button" class="btn-classification" onclick="openForm3()">Modify Gender</button>
+        <button type="button" class="btn-publication" onclick="openForm4()">Modify D.O.B</button>
+        <button type="button" class="btn-category" onclick="openForm5()">Modify Father's Name</button>
+        <button type="button" class="btn-year" onclick="openForm6()">Modify Mother's Name</button>
+        <button type="button" class="btn-pages" onclick="openForm7()">Modify Blood Group</button>
+        <button type="button" class="btn-cost" onclick="openForm8()">Modify Expiry date</button>
+        <button type="button" class="btn-address" onclick="openForm11()">Modify Address</button>
+        <button type="button" class="btn-author1" onclick="openForm12()">Modify City</button>
+        <button type="button" class="btn-category1" onclick="openForm13()">Modify Mail</button>
+        <button type="button" class="btn-year1" onclick="openForm14()">Modify Contact</button>
+        <button type="button" class="btn-edition1" onclick="openForm17()">Modify Remarks</button>
+
+<div style="position:absolute;top:23%;left:55%;margin:-100px 0 0 -150px;">
+        {% for message in messages %}
+      <h6><i><font color="red">{{message}}</font></i></h6>
+        {% endfor %}</div>
+
+
+      <div class="form-popup" id="ModifyDOA">
+        <form method="POST" action="/update_stds" class="form-container">
+            {%csrf_token%}
+          <h2>Enter the following details</h2>
+          <label for="a_id">Admission number</label><br>
+          <input type="text" name="a_id" placeholder="Enter *" required><br>
+          <label for="doa">Date of Admission</label><br>
+          <input type="date" name="doa" placeholder="Enter *" required><br>
+          <button type="submit" class="btn btn-change" >Change Date Of Admission</button>
+          <button type="button" class="btn cancel btn-change" onclick="closeForm()">Close</button>
+        </form>
+      </div>
+      <div class="form-popup" id="ModifyName">
+        <form method="POST" action="/update_stds" class="form-container">
+            {%csrf_token%}
+          <h2>Enter the following details</h2>
+          <label for="a_id">Roll number</label><br>
+          <input type="text" name="a_id" placeholder="Enter *" required><br>
+          <label for="name">Student Name</label><br>
+          <input type="text" name="name" style="text-transform: capitalize;"  placeholder="Enter Student Name*" required><br>
+          <button type="submit" class="btn btn-change">Change Student Name</button>
+          <button type="button" class="btn cancel btn-change" onclick="closeForm2()">Close</button>
+        </form>
+      </div>
+      <div class="form-popup" id="ModifyGender">
+        <form  method="POST" action="/update_stds" class="form-container">
+            {%csrf_token%}
+          <h2>Enter the following details</h2>
+          <label for="a_id">Roll number</label><br>
+          <input type="text" name="a_id" placeholder="Enter *" required><br>
+          <label for="gender">Gender</label><br>
+          <input type="radio" id="male" name="gender" value="male" checked>
+
+          <label for="male">Male</label><br>
+                    
+          <input type="radio" id="female"  name="gender" value="female">
+                    
+          <label for="female">Female</label>
+                
+          <button type="submit" class="btn btn-change" >Change Gender</button>
+          <button type="button" class="btn cancel btn-change" onclick="closeForm3()">Close</button>
+        </form>
+      </div>
+      <div class="form-popup" id="ModifyDOB">
+        <form  method="POST" action="/update_stds" class="form-container">
+            {%csrf_token%}
+          <h2>Enter the following details</h2>
+          <label for="a_id">Roll number</label><br>
+          <input type="text" name="a_id" placeholder="Enter *" required><br>
+          <label for="dob">Date of Birth</label><br>
+          <input type="date" name="dob" placeholder="Enter Date of Birth*" required><br>
+          <button type="submit" class="btn btn-change" >Change Date of Birth</button>
+          <button type="button" class="btn cancel btn-change" onclick="closeForm4()">Close</button>
+        </form>
+      </div>
+      <div class="form-popup" id="ModifyFather">
+        <form method="POST" action="/update_stds" class="form-container">
+            {%csrf_token%}
+          <h2>Enter the following details</h2>
+          <label for="a_id">Roll number</label><br>
+          <input type="text" name="a_id" placeholder="Enter *" required><br>
+          <label for="father">Father's Name</label><br>
+          <input type="text" name="father"  style="text-transform: capitalize;" placeholder="Enter Father's Name*" required><br>
+          <button type="submit" class="btn btn-change" >Change Father's Name</button>
+          <button type="button" class="btn cancel btn-change" onclick="closeForm5()">Close</button>
+        </form>
+      </div>
+      <div class="form-popup" id="ModifyMother">
+        <form method="POST" action="/update_stds" class="form-container">
+            {%csrf_token%}
+          <h2>Enter the following details</h2>
+          <label for="a_id">Roll number</label><br>
+          <input type="text" name="a_id" placeholder="Enter *" required><br>
+          <label for="mother">Mother's Name</label><br>
+          <input type="text" name="mother"  style="text-transform: capitalize;" placeholder="Enter Mother's Name*" required><br>
+          <button type="submit" class="btn btn-change" >Change Mother's Name</button>
+          <button type="button" class="btn cancel btn-change" onclick="closeForm6()">Close</button>
+        </form>
+      </div>
+      <div class="form-popup" id="ModifyBG">
+        <form method="POST" action="/update_stds" class="form-container">
+            {%csrf_token%}
+          <h2>Enter the following details</h2>
+          <label for="a_id">Roll number</label><br>
+          <input type="text" name="a_id" placeholder="Enter *" required><br>
+          <label for="BG">Blood Group</label><br>
+
+          <select name="blood_group" class="form-control styled-select-select">Select Group
+
+            <option>- Select -</option>
+                    
+            <option value="A+">A+</option>
+                    
+            <option value="A-">A-</option>
+                    
+            <option value="B+">B+</option>
+                    
+            <option value="B-">B-</option>
+                    
+            <option value="O+">O+</option>
+                    
+            <option value="O-">O-</option>
+                    
+            <option value="AB+">AB+</option>
+                    
+            <option value="AB-">AB-</option>
+            <option value="NA">NA</option>
+                    
+          </select>
+
+          <button type="submit" class="btn btn-change" >Change Blood Group</button>
+          <button type="button" class="btn cancel btn-change" onclick="closeForm7()">Close</button>
+        </form>
+      </div>
+      <div class="form-popup" id="ModifyAge">
+        <form  method="POST" action="/update_stds" class="form-container">
+            {%csrf_token%}
+          <h2>Enter the following details</h2>
+          <label for="a_id">Roll number</label><br>
+          <input type="text" name="a_id" placeholder="Enter *" required><br>
+          <label for="age">Expiry date</label><br>
+          <input type="date" name="expiry_date" class="form-control" placeholder="Age" value=""  required/>
+          <button type="submit" class="btn btn-change" >Change Expirt date</button>
+          <button type="button" class="btn cancel btn-change" onclick="closeForm8()">Close</button>
+        </form>
+      </div>
+
+
+
+      <div class="form-popup" id="ModifyAddress">
+        <form   method="POST" action="/update_stds" class="form-container">
+            {%csrf_token%}
+          <h2>Enter the following details</h2>
+          <label for="a_id">Roll number</label><br>
+          <input type="text" name="a_id" placeholder="Enter *" required><br>
+          <label for="Address">Address</label><br>
+          <input type="text" name="address" style="text-transform: capitalize;"  placeholder="Enter Address*"><br>
+
+          <button type="submit" class="btn btn-change" >Change Address</button>
+          <button type="button" class="btn cancel btn-change" onclick="closeForm11()">Close</button>
+        </form>
+      </div>
+
+      <div class="form-popup" id="ModifyCity">
+        <form   method="POST" action="/update_stds" class="form-container">
+            {%csrf_token%}
+          <h2>Enter the following details</h2>
+          <label for="a_id">Roll number</label><br>
+          <input type="text" name="a_id" placeholder="Enter *" required><br>
+          <label for="city">City</label><br>
+          <input type="text" name="city"  style="text-transform: capitalize;" placeholder="Enter City*"><br>
+
+          <label for="state">State</label><br>
+          <input type="text" name="state" style="text-transform: capitalize;"  placeholder="Enter State*"><br>
+          <button type="submit" class="btn btn-change" >Change City</button>
+          <button type="button" class="btn cancel btn-change" onclick="closeForm12()">Close</button>
+        </form>
+      </div>
+
+      <div class="form-popup" id="ModifyMail">
+        <form  method="POST" action="/update_stds" class="form-container">
+            {%csrf_token%}
+          <h2>Enter the following details</h2>
+          <label for="a_id">Roll number</label><br>
+          <input type="text" name="a_id" placeholder="Enter *" required><br>
+          <label for="mail">E-Mail</label><br>
+          <input type="email" name="email" placeholder="Enter E-Mail*" required><br>
+          <button type="submit" class="btn btn-change" >Change E-Mail</button>
+          <button type="button" class="btn cancel btn-change" onclick="closeForm13()">Close</button>
+        </form>
+      </div>
+
+
+      <div class="form-popup" id="ModifyContact">
+        <form   method="POST" action="/update_stds" class="form-container">
+            {%csrf_token%}
+          <h2>Enter the following details</h2>
+          <label for="a_id">Roll number</label><br>
+          <input type="text" name="a_id" placeholder="Enter *" required><br>
+          <label for="contact">Contact</label><br>
+          <input type="tel" name="contact" placeholder="Enter Contact(P)*"><br>
+
+          <button type="submit" class="btn btn-change" >Change Contact</button>
+          <button type="button" class="btn cancel btn-change" onclick="closeForm14()">Close</button>
+        </form>
+      </div>
+
+
+
+
+
+
+
+      <div class="form-popup" id="ModifyRemarks">
+        <form   method="POST" action="/update_stds" class="form-container">
+            {%csrf_token%}
+          <h2>Enter the following details</h2>
+          <label for="a_id">Roll number</label><br>
+          <input type="text" name="a_id" placeholder="Enter *" required><br>
+          <label for="remarks">Remarks</label><br>
+          <input type="text" name="remarks" style="text-transform: capitalize;"  placeholder="Enter Remarks*" required><br>
+          <button type="submit" class="btn btn-change" >Change Remarks</button>
+          <button type="button" class="btn cancel btn-change" onclick="closeForm17()">Close</button>
+        </form>
+      </div>
+
+      <script>
+        function Scan() {
+            document.getElementById("Scan").style.display = "none";
+        }
+
+
+      function openForm() {
+        document.getElementById("ModifyDOA").style.display = "block";
+        document.getElementById("ModifyName").style.display = "none";
+        document.getElementById("ModifyGender").style.display = "none";
+        document.getElementById("ModifyDOB").style.display = "none";
+        document.getElementById("ModifyFather").style.display = "none";
+        document.getElementById("ModifyMother").style.display = "none";
+        document.getElementById("ModifyBG").style.display = "none";
+        document.getElementById("ModifyAge").style.display = "none";
+        document.getElementById("ModifyHeight").style.display = "none";
+        document.getElementById("ModifyWeight").style.display = "none";
+        document.getElementById("ModifyAddress").style.display = "none";
+        document.getElementById("ModifyCity").style.display = "none";
+        document.getElementById("ModifyMail").style.display = "none";
+        document.getElementById("ModifyContact").style.display = "none";
+        document.getElementById("ModifyVision").style.display = "none";
+        document.getElementById("ModifyDental").style.display = "none";
+        document.getElementById("ModifyRemarks").style.display = "none";
+      }
+
+
+      function openForm2() {
+        document.getElementById("ModifyName").style.display = "block";
+        document.getElementById("ModifyDOA").style.display = "none";
+        document.getElementById("ModifyGender").style.display = "none";
+        document.getElementById("ModifyDOB").style.display = "none";
+        document.getElementById("ModifyFather").style.display = "none";
+        document.getElementById("ModifyMother").style.display = "none";
+        document.getElementById("ModifyBG").style.display = "none";
+        document.getElementById("ModifyAge").style.display = "none";
+        document.getElementById("ModifyHeight").style.display = "none";
+        document.getElementById("ModifyWeight").style.display = "none";
+        document.getElementById("ModifyAddress").style.display = "none";
+        document.getElementById("ModifyCity").style.display = "none";
+        document.getElementById("ModifyMail").style.display = "none";
+        document.getElementById("ModifyContact").style.display = "none";
+        document.getElementById("ModifyVision").style.display = "none";
+        document.getElementById("ModifyDental").style.display = "none";
+        document.getElementById("ModifyRemarks").style.display = "none";
+      }
+
+      function openForm3() {
+        document.getElementById("ModifyGender").style.display = "block";
+        document.getElementById("ModifyDOA").style.display = "none";
+        document.getElementById("ModifyName").style.display = "none";
+        document.getElementById("ModifyDOB").style.display = "none";
+        document.getElementById("ModifyFather").style.display = "none";
+        document.getElementById("ModifyMother").style.display = "none";
+        document.getElementById("ModifyBG").style.display = "none";
+        document.getElementById("ModifyAge").style.display = "none";
+        document.getElementById("ModifyHeight").style.display = "none";
+        document.getElementById("ModifyWeight").style.display = "none";
+        document.getElementById("ModifyAddress").style.display = "none";
+        document.getElementById("ModifyCity").style.display = "none";
+        document.getElementById("ModifyMail").style.display = "none";
+        document.getElementById("ModifyContact").style.display = "none";
+        document.getElementById("ModifyVision").style.display = "none";
+        document.getElementById("ModifyDental").style.display = "none";
+        document.getElementById("ModifyRemarks").style.display = "none";
+      }
+
+      function openForm4() {
+        document.getElementById("ModifyDOB").style.display = "block";
+        document.getElementById("ModifyDOA").style.display = "none";
+        document.getElementById("ModifyName").style.display = "none";
+        document.getElementById("ModifyGender").style.display = "none";
+        document.getElementById("ModifyFather").style.display = "none";
+        document.getElementById("ModifyMother").style.display = "none";
+        document.getElementById("ModifyBG").style.display = "none";
+        document.getElementById("ModifyAge").style.display = "none";
+        document.getElementById("ModifyHeight").style.display = "none";
+        document.getElementById("ModifyWeight").style.display = "none";
+        document.getElementById("ModifyAddress").style.display = "none";
+        document.getElementById("ModifyCity").style.display = "none";
+        document.getElementById("ModifyMail").style.display = "none";
+        document.getElementById("ModifyContact").style.display = "none";
+        document.getElementById("ModifyVision").style.display = "none";
+        document.getElementById("ModifyDental").style.display = "none";
+        document.getElementById("ModifyRemarks").style.display = "none";
+      }
+
+      function openForm5() {
+        document.getElementById("ModifyFather").style.display = "block";
+        document.getElementById("ModifyDOA").style.display = "none";
+        document.getElementById("ModifyName").style.display = "none";
+        document.getElementById("ModifyGender").style.display = "none";
+        document.getElementById("ModifyDOB").style.display = "none";
+        document.getElementById("ModifyMother").style.display = "none";
+        document.getElementById("ModifyBG").style.display = "none";
+        document.getElementById("ModifyAge").style.display = "none";
+        document.getElementById("ModifyHeight").style.display = "none";
+        document.getElementById("ModifyWeight").style.display = "none";
+        document.getElementById("ModifyAddress").style.display = "none";
+        document.getElementById("ModifyCity").style.display = "none";
+        document.getElementById("ModifyMail").style.display = "none";
+        document.getElementById("ModifyContact").style.display = "none";
+        document.getElementById("ModifyVision").style.display = "none";
+        document.getElementById("ModifyDental").style.display = "none";
+        document.getElementById("ModifyRemarks").style.display = "none";
+      }
+
+
+            function openForm6() {
+              document.getElementById("ModifyMother").style.display = "block";
+              document.getElementById("ModifyDOA").style.display = "none";
+              document.getElementById("ModifyName").style.display = "none";
+              document.getElementById("ModifyGender").style.display = "none";
+              document.getElementById("ModifyDOB").style.display = "none";
+              document.getElementById("ModifyFather").style.display = "none";
+              document.getElementById("ModifyBG").style.display = "none";
+              document.getElementById("ModifyAge").style.display = "none";
+              document.getElementById("ModifyHeight").style.display = "none";
+              document.getElementById("ModifyWeight").style.display = "none";
+              document.getElementById("ModifyAddress").style.display = "none";
+              document.getElementById("ModifyCity").style.display = "none";
+              document.getElementById("ModifyMail").style.display = "none";
+              document.getElementById("ModifyContact").style.display = "none";
+              document.getElementById("ModifyVision").style.display = "none";
+              document.getElementById("ModifyDental").style.display = "none";
+              document.getElementById("ModifyRemarks").style.display = "none";
+            }
+
+
+
+                        function openForm7() {
+                          document.getElementById("ModifyBG").style.display = "block";
+                          document.getElementById("ModifyDOA").style.display = "none";
+                          document.getElementById("ModifyName").style.display = "none";
+                          document.getElementById("ModifyGender").style.display = "none";
+                          document.getElementById("ModifyDOB").style.display = "none";
+                          document.getElementById("ModifyFather").style.display = "none";
+                          document.getElementById("ModifyMother").style.display = "none";
+                          document.getElementById("ModifyAge").style.display = "none";
+                          document.getElementById("ModifyHeight").style.display = "none";
+                          document.getElementById("ModifyWeight").style.display = "none";
+                          document.getElementById("ModifyAddress").style.display = "none";
+              document.getElementById("ModifyCity").style.display = "none";
+              document.getElementById("ModifyMail").style.display = "none";
+              document.getElementById("ModifyContact").style.display = "none";
+              document.getElementById("ModifyVision").style.display = "none";
+              document.getElementById("ModifyDental").style.display = "none";
+              document.getElementById("ModifyRemarks").style.display = "none";
+
+                        }
+                        function openForm8() {
+                          document.getElementById("ModifyAge").style.display = "block";
+                          document.getElementById("ModifyDOA").style.display = "none";
+                          document.getElementById("ModifyName").style.display = "none";
+                          document.getElementById("ModifyGender").style.display = "none";
+                          document.getElementById("ModifyDOB").style.display = "none";
+                          document.getElementById("ModifyFather").style.display = "none";
+                          document.getElementById("ModifyMother").style.display = "none";
+                          document.getElementById("ModifyBG").style.display = "none";
+                          document.getElementById("ModifyHeight").style.display = "none";
+                          document.getElementById("ModifyWeight").style.display = "none";
+                          document.getElementById("ModifyAddress").style.display = "none";
+              document.getElementById("ModifyCity").style.display = "none";
+              document.getElementById("ModifyMail").style.display = "none";
+              document.getElementById("ModifyContact").style.display = "none";
+              document.getElementById("ModifyVision").style.display = "none";
+              document.getElementById("ModifyDental").style.display = "none";
+              document.getElementById("ModifyRemarks").style.display = "none";
+
+                      }
+                      function openForm9() {
+                        document.getElementById("ModifyHeight").style.display = "block";
+                        document.getElementById("ModifyDOA").style.display = "none";
+                        document.getElementById("ModifyName").style.display = "none";
+                        document.getElementById("ModifyGender").style.display = "none";
+                        document.getElementById("ModifyDOB").style.display = "none";
+                        document.getElementById("ModifyFather").style.display = "none";
+                        document.getElementById("ModifyMother").style.display = "none";
+                        document.getElementById("ModifyBG").style.display = "none";
+                        document.getElementById("ModifyAge").style.display = "none";
+                        document.getElementById("ModifyWeight").style.display = "none";
+                        document.getElementById("ModifyAddress").style.display = "none";
+              document.getElementById("ModifyCity").style.display = "none";
+              document.getElementById("ModifyMail").style.display = "none";
+              document.getElementById("ModifyContact").style.display = "none";
+              document.getElementById("ModifyVision").style.display = "none";
+              document.getElementById("ModifyDental").style.display = "none";
+              document.getElementById("ModifyRemarks").style.display = "none";
+
+                      }
+                      function openForm10() {
+                        document.getElementById("ModifyWeight").style.display = "block";
+                        document.getElementById("ModifyDOA").style.display = "none";
+                        document.getElementById("ModifyName").style.display = "none";
+                        document.getElementById("ModifyGender").style.display = "none";
+                        document.getElementById("ModifyDOB").style.display = "none";
+                        document.getElementById("ModifyFather").style.display = "none";
+                        document.getElementById("ModifyMother").style.display = "none";
+                        document.getElementById("ModifyBG").style.display = "none";
+                        document.getElementById("ModifyAge").style.display = "none";
+                        document.getElementById("ModifyHeight").style.display = "none";
+                        document.getElementById("ModifyAddress").style.display = "none";
+              document.getElementById("ModifyCity").style.display = "none";
+              document.getElementById("ModifyMail").style.display = "none";
+              document.getElementById("ModifyContact").style.display = "none";
+              document.getElementById("ModifyVision").style.display = "none";
+              document.getElementById("ModifyDental").style.display = "none";
+              document.getElementById("ModifyRemarks").style.display = "none";
+
+                      }
+                       function openForm11() {
+                        document.getElementById("ModifyAddress").style.display = "block";
+                        document.getElementById("ModifyDOA").style.display = "none";
+                        document.getElementById("ModifyName").style.display = "none";
+                        document.getElementById("ModifyGender").style.display = "none";
+                        document.getElementById("ModifyDOB").style.display = "none";
+                        document.getElementById("ModifyFather").style.display = "none";
+                        document.getElementById("ModifyMother").style.display = "none";
+                        document.getElementById("ModifyBG").style.display = "none";
+                        document.getElementById("ModifyAge").style.display = "none";
+                        document.getElementById("ModifyHeight").style.display = "none";
+                        document.getElementById("ModifyWeight").style.display = "none";
+              document.getElementById("ModifyCity").style.display = "none";
+              document.getElementById("ModifyMail").style.display = "none";
+              document.getElementById("ModifyContact").style.display = "none";
+              document.getElementById("ModifyVision").style.display = "none";
+              document.getElementById("ModifyDental").style.display = "none";
+              document.getElementById("ModifyRemarks").style.display = "none";
+
+                      }
+                       function openForm12() {
+                        document.getElementById("ModifyCity").style.display = "block";
+                        document.getElementById("ModifyDOA").style.display = "none";
+                        document.getElementById("ModifyName").style.display = "none";
+                        document.getElementById("ModifyGender").style.display = "none";
+                        document.getElementById("ModifyDOB").style.display = "none";
+                        document.getElementById("ModifyFather").style.display = "none";
+                        document.getElementById("ModifyMother").style.display = "none";
+                        document.getElementById("ModifyBG").style.display = "none";
+                        document.getElementById("ModifyAge").style.display = "none";
+                        document.getElementById("ModifyHeight").style.display = "none";
+                        document.getElementById("ModifyWeight").style.display = "none";
+              document.getElementById("ModifyAddress").style.display = "none";
+              document.getElementById("ModifyMail").style.display = "none";
+              document.getElementById("ModifyContact").style.display = "none";
+              document.getElementById("ModifyVision").style.display = "none";
+              document.getElementById("ModifyDental").style.display = "none";
+              document.getElementById("ModifyRemarks").style.display = "none";
+
+                      }
+                      function openForm13() {
+                        document.getElementById("ModifyMail").style.display = "block";
+                        document.getElementById("ModifyDOA").style.display = "none";
+                        document.getElementById("ModifyName").style.display = "none";
+                        document.getElementById("ModifyGender").style.display = "none";
+                        document.getElementById("ModifyDOB").style.display = "none";
+                        document.getElementById("ModifyFather").style.display = "none";
+                        document.getElementById("ModifyMother").style.display = "none";
+                        document.getElementById("ModifyBG").style.display = "none";
+                        document.getElementById("ModifyAge").style.display = "none";
+                        document.getElementById("ModifyHeight").style.display = "none";
+                        document.getElementById("ModifyWeight").style.display = "none";
+              document.getElementById("ModifyAddress").style.display = "none";
+              document.getElementById("ModifyCity").style.display = "none";
+              document.getElementById("ModifyContact").style.display = "none";
+              document.getElementById("ModifyVision").style.display = "none";
+              document.getElementById("ModifyDental").style.display = "none";
+              document.getElementById("ModifyRemarks").style.display = "none";
+
+                      }
+                      function openForm14() {
+                        document.getElementById("ModifyContact").style.display = "block";
+                        document.getElementById("ModifyDOA").style.display = "none";
+                        document.getElementById("ModifyName").style.display = "none";
+                        document.getElementById("ModifyGender").style.display = "none";
+                        document.getElementById("ModifyDOB").style.display = "none";
+                        document.getElementById("ModifyFather").style.display = "none";
+                        document.getElementById("ModifyMother").style.display = "none";
+                        document.getElementById("ModifyBG").style.display = "none";
+                        document.getElementById("ModifyAge").style.display = "none";
+                        document.getElementById("ModifyHeight").style.display = "none";
+                        document.getElementById("ModifyWeight").style.display = "none";
+              document.getElementById("ModifyAddress").style.display = "none";
+              document.getElementById("ModifyCity").style.display = "none";
+              document.getElementById("ModifyMail").style.display = "none";
+              document.getElementById("ModifyVision").style.display = "none";
+              document.getElementById("ModifyDental").style.display = "none";
+              document.getElementById("ModifyRemarks").style.display = "none";
+
+                      }
+                      function openForm15() {
+                        document.getElementById("ModifyVision").style.display = "block";
+                        document.getElementById("ModifyDOA").style.display = "none";
+                        document.getElementById("ModifyName").style.display = "none";
+                        document.getElementById("ModifyGender").style.display = "none";
+                        document.getElementById("ModifyDOB").style.display = "none";
+                        document.getElementById("ModifyFather").style.display = "none";
+                        document.getElementById("ModifyMother").style.display = "none";
+                        document.getElementById("ModifyBG").style.display = "none";
+                        document.getElementById("ModifyAge").style.display = "none";
+                        document.getElementById("ModifyHeight").style.display = "none";
+                        document.getElementById("ModifyWeight").style.display = "none";
+              document.getElementById("ModifyAddress").style.display = "none";
+              document.getElementById("ModifyCity").style.display = "none";
+              document.getElementById("ModifyMail").style.display = "none";
+              document.getElementById("ModifyContact").style.display = "none";
+              document.getElementById("ModifyDental").style.display = "none";
+              document.getElementById("ModifyRemarks").style.display = "none";
+
+                      }
+                      function openForm16() {
+                        document.getElementById("ModifyDental").style.display = "block";
+                        document.getElementById("ModifyDOA").style.display = "none";
+                        document.getElementById("ModifyName").style.display = "none";
+                        document.getElementById("ModifyGender").style.display = "none";
+                        document.getElementById("ModifyDOB").style.display = "none";
+                        document.getElementById("ModifyFather").style.display = "none";
+                        document.getElementById("ModifyMother").style.display = "none";
+                        document.getElementById("ModifyBG").style.display = "none";
+                        document.getElementById("ModifyAge").style.display = "none";
+                        document.getElementById("ModifyHeight").style.display = "none";
+                        document.getElementById("ModifyWeight").style.display = "none";
+              document.getElementById("ModifyAddress").style.display = "none";
+              document.getElementById("ModifyCity").style.display = "none";
+              document.getElementById("ModifyMail").style.display = "none";
+              document.getElementById("ModifyContact").style.display = "none";
+              document.getElementById("ModifyVision").style.display = "none";
+              document.getElementById("ModifyRemarks").style.display = "none";
+
+                      }
+                      function openForm17() {
+                        document.getElementById("ModifyRemarks").style.display = "block";
+                        document.getElementById("ModifyDOA").style.display = "none";
+                        document.getElementById("ModifyName").style.display = "none";
+                        document.getElementById("ModifyGender").style.display = "none";
+                        document.getElementById("ModifyDOB").style.display = "none";
+                        document.getElementById("ModifyFather").style.display = "none";
+                        document.getElementById("ModifyMother").style.display = "none";
+                        document.getElementById("ModifyBG").style.display = "none";
+                        document.getElementById("ModifyAge").style.display = "none";
+                        document.getElementById("ModifyHeight").style.display = "none";
+                        document.getElementById("ModifyWeight").style.display = "none";
+              document.getElementById("ModifyAddress").style.display = "none";
+              document.getElementById("ModifyCity").style.display = "none";
+              document.getElementById("ModifyMail").style.display = "none";
+              document.getElementById("ModifyContact").style.display = "none";
+              document.getElementById("ModifyVision").style.display = "none";
+              document.getElementById("ModifyDental").style.display = "none";
+
+                      }
+      function closeForm() {
+        document.getElementById("ModifyDOA").style.display = "none";
+      }
+      function closeForm2() {
+        document.getElementById("ModifyName").style.display = "none";
+      }
+
+      function closeForm3() {
+        document.getElementById("ModifyGender").style.display = "none";
+      }
+
+      function closeForm4() {
+        document.getElementById("ModifyDOB").style.display = "none";
+      }
+
+      function closeForm5() {
+        document.getElementById("ModifyFather").style.display = "none";
+      }
+      function closeForm6() {
+        document.getElementById("ModifyMother").style.display = "none";
+      }
+      function closeForm7() {
+        document.getElementById("ModifyBG").style.display = "none";
+      }
+
+      function closeForm8() {
+        document.getElementById("ModifyAge").style.display = "none";
+      }
+
+      function closeForm9() {
+        document.getElementById("ModifyHeight").style.display = "none";
+      }
+
+      function closeForm10() {
+        document.getElementById("ModifyWeight").style.display = "none";
+      }
+      function closeForm11() {
+        document.getElementById("ModifyAddress").style.display = "none";
+      }
+      function closeForm12() {
+        document.getElementById("ModifyCity").style.display = "none";
+      }
+
+      function closeForm13() {
+        document.getElementById("ModifyMail").style.display = "none";
+      }
+
+      function closeForm14() {
+        document.getElementById("ModifyContact").style.display = "none";
+      }
+
+      function closeForm15() {
+        document.getElementById("ModifyVision").style.display = "none";
+      }
+      function closeForm16() {
+        document.getElementById("ModifyDental").style.display = "none";
+      }
+      function closeForm17() {
+        document.getElementById("ModifyRemarks").style.display = "none";
+      }
+
+
+      function warn() {
+      confirm("Do you really want to log out of this session!!!");
+
+      }
+
+      </script>
+
+  </body>
+</html>

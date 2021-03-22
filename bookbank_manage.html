@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+      {% load static %}
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title></title>
+
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+.info{
+  font-family: serif;
+  font-size: 25px;
+  background-color:#dc3545;
+  padding: 10px 630px;
+    word-spacing: 0.6rem;
+    color: #fff;
+}
+.log{
+
+  position: absolute;
+  left: 600px;
+  top: 10px;
+}
+.open-button1 {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  top:500px;
+  left:300px;
+  position: absolute;
+  width: 280px;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: absolute;
+  top:200px;
+  left: 530px;
+  border: 2.5px solid #f1f1f1;
+  z-index: 9;
+  width:35%
+}
+
+.fgh1 {
+
+  position: absolute;
+  top:200px;
+  left: 1050px;
+
+  width:200px;
+}
+
+
+.form-popup1 {
+
+  display: none;
+  position: absolute;
+  top:300px;
+  left: 700px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+  width:35%;
+}
+
+/* Add styles to the form container */
+.form-container {
+  position: relative;
+  max-width: 100%;
+  padding: 5px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=text] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 10px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=text]:focus {
+  background-color: #ddd;
+  width: 60%;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+.btn-Ascession{
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  position: absolute;
+  left: 150px;
+  top: 80px;
+  border: none;
+  cursor: pointer;
+  width: 31%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+.btn-title {
+   background-color: #4CAF50;
+   color: white;
+   padding: 16px 10px;
+   border: none;
+   position: absolute;
+   top: 180px;
+   left: 70px;
+   border-radius: 5%;
+   cursor: pointer;
+   width: 15%;
+   margin:10px 10px;
+   opacity: 0.8;
+ }
+ .btn-author {
+     background-color: #4CAF50;
+     color: white;
+     padding: 16px 10px;
+     border: none;
+     position: absolute;
+     top: 180px;
+     left: 300px;
+     border-radius: 5%;
+     cursor: pointer;
+     width: 15%;
+     margin:10px 10px;
+     opacity: 0.8;
+   }
+  .btn-classification {
+      background-color: #4CAF50;
+      color: white;
+      padding: 16px 10px;
+      border: none;
+      position: absolute;
+      top: 250px;
+      left: 70px;
+      border-radius: 5%;
+      cursor: pointer;
+      width: 15%;
+      margin:10px 10px;
+      opacity: 0.8;
+    }
+.btn-publication {
+   background-color: #4CAF50;
+   color: white;
+   padding: 16px 10px;
+   border: none;
+   position: absolute;
+   top: 250px;
+   left: 300px;
+   border-radius: 5%;
+   cursor: pointer;
+   width: 15%;
+   margin:10px 10px;
+   opacity: 0.8;
+ }
+
+ .btn-category {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 10px;
+    border: none;
+    position: absolute;
+    top: 330px;
+    left: 70px;
+    border-radius: 5%;
+    cursor: pointer;
+    width: 15%;
+    margin:10px 10px;
+    opacity: 0.8;
+  }
+
+ .btn-year {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 10px;
+    border: none;
+    position: absolute;
+    top: 330px;
+    left: 300px;
+    border-radius: 5%;
+    cursor: pointer;
+    width: 15%;
+    margin:10px 10px;
+    opacity: 0.8;
+  }
+
+ .btn-pages {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 10px;
+    border: none;
+    position: absolute;
+    top: 410px;
+    left: 70px;
+    border-radius: 5%;
+    cursor: pointer;
+    width: 15%;
+    margin:10px 10px;
+    opacity: 0.8;
+  }
+
+ .btn-cost {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 10px;
+    border: none;
+    position: absolute;
+    top: 410px;
+    left: 300px;
+    border-radius: 5%;
+    cursor: pointer;
+    width: 15%;
+    margin:10px 10px;
+    opacity: 0.8;
+  }
+
+ .btn-edition {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 10px;
+    border: none;
+    position: absolute;
+    top: 490px;
+    left: 70px;
+    border-radius: 5%;
+    cursor: pointer;
+    width: 15%;
+    margin:10px 10px;
+    opacity: 0.8;
+  }
+
+  .btn-copies {
+   background-color: #4CAF50;
+   color: white;
+   padding: 16px 10px;
+   border: none;
+   position: absolute;
+   top: 490px;
+   left: 300px;
+   border-radius: 5%;
+   cursor: pointer;
+   width: 15%;
+   margin:10px 10px;
+   opacity: 0.8;
+ }
+ .btn-bill_no {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 10px;
+    border: none;
+    position: absolute;
+    top: 570px;
+    left: 70px;
+    border-radius: 5%;
+    cursor: pointer;
+    width: 15%;
+    margin:10px 10px;
+    opacity: 0.8;
+  }
+
+  .btn-bill_date {
+   background-color: #4CAF50;
+   color: white;
+   padding: 16px 10px;
+   border: none;
+   position: absolute;
+   top: 570px;
+   left: 300px;
+   border-radius: 5%;
+   cursor: pointer;
+   width: 15%;
+   margin:10px 10px;
+   opacity: 0.8;
+ }
+ .btn-date_p {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 10px;
+    border: none;
+    position: absolute;
+    top: 650px;
+    left: 70px;
+    border-radius: 5%;
+    cursor: pointer;
+    width: 15%;
+    margin:10px 10px;
+    opacity: 0.8;
+  }
+
+  .btn-published_from {
+   background-color: #4CAF50;
+   color: white;
+   padding: 16px 10px;
+   border: none;
+   position: absolute;
+   top: 650px;
+   left: 300px;
+   border-radius: 5%;
+   cursor: pointer;
+   width: 15%;
+   margin:10px 10px;
+   opacity: 0.8;
+ }
+ .btn-rescan {
+   background-color: #4CAF50;
+   color: white;
+   padding: 16px 10px;
+   border: none;
+   position: absolute;
+   top: 570px;
+   left: 100px;
+   border-radius: 5%;
+   cursor: pointer;
+   width: 15%;
+   margin:10px 10px;
+   opacity: 0.8;
+ }
+ .btn-clos {
+   background-color: #4CAF50;
+   color: white;
+   padding: 16px 10px;
+   border: none;
+   position: absolute;
+   top: 730px;
+   left: 70px;
+   border-radius: 5%;
+   cursor: pointer;
+   width: 31%;
+   margin:10px 10px;
+   opacity: 0.8;
+ }
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+
+</style>
+  </head>
+  <body>
+    <div class="container-fluid p3 info">
+
+      <div class="row">
+        <div class="col d-flex justify-content-between align-items-baseline flex-wrap">
+          <h2 class="primary-color info p-2 text-capitalize">Manage Book Bank</h2>
+          <div class="container ml-auto">
+              <form action="/handle_logout" method="POST">
+  {%csrf_token%}
+          <button type="submit"  class="btn btn-outline-dark align-items-end log" onclick="warn()">Log Out</button></a>
+</form>    </div>
+        </div>
+      </div>
+    </div>
+<div style="position:absolute;top:23%;left:55%;margin:-100px 0 0 -150px;">
+        {% for message in messages %}
+      <h6><i><font color="red">{{message}}</font></i></h6>
+        {% endfor %}</div>
+
+
+
+        <button type="button" class="btn-title" onclick="openForm()">Modify Title</button>
+        <button type="button" class="btn-author" onclick="openForm2()">Modify Author</button>
+        <button type="button" class="btn-classification" onclick="openForm3()">Modify Call Number</button>
+        <button type="button" class="btn-publication" onclick="openForm4()">Modify Publisher</button>
+        <button type="button" class="btn-category" onclick="openForm5()">Modify Categories</button>
+        <button type="button" class="btn-year" onclick="openForm6()">Modify Year Of Publication</button>
+        <button type="button" class="btn-pages" onclick="openForm7()">Modify No. Of Pages(s)</button>
+        <button type="button" class="btn-cost" onclick="openForm8()">Modify Cost of the book</button>
+        <button type="button" class="btn-edition" onclick="openForm9()">Modify Edition</button>
+    <button type="button" class="btn-copies" onclick="openForm10()">Modify Volume</button>
+       <button type="button" class="btn-bill_no" onclick="openForm11()">Modify Bill Number</button>
+        <button type="button" class="btn-bill_date" onclick="openForm12()">Modify Bill Date</button>
+        <button type="button" class="btn-date_p" onclick="openForm13()">Modify Date</button>
+ <button type="button" class="btn-published_from" onclick="openForm14()">Modify Publisher From</button>
+
+
+                          <a href="/get_u_bb"> <button type="button" class="btn-clos">Close</button></a>
+
+
+
+      <div class="form-popup" id="ModifyTitle">
+        <form method="POST" action="/update_bookbank" class="form-container">
+            {%csrf_token%}
+          <h2>Enter the following details</h2>
+          <label for="Title">Title</label><br>
+          <input type="text" name="title"  style="text-transform: capitalize;" placeholder="Enter Title*" required><br>
+          <button type="submit" class="btn btn-change" >Change Title</button>
+          <button type="button" class="btn cancel btn-change" onclick="closeForm()">Close</button>
+        </form>
+      </div>
+      <div class="form-popup" id="ModifyAuthor">
+        <form method="POST" action="/update_bookbank" class="form-container">
+            {%csrf_token%}
+          <h2>Enter the following details</h2>
+          <label for="author">Author</label><br>
+          <input type="text" name="author"  style="text-transform: capitalize;" placeholder="Enter Author*" required><br>
+          <button type="submit" class="btn btn-change" >Change Author</button>
+          <button type="button" class="btn cancel btn-change" onclick="closeForm2()">Close</button>
+        </form>
+      </div>
+      <div class="form-popup" id="ModifyClassification">
+        <form method="POST" action="/update_bookbank" class="form-container">
+            {%csrf_token%}
+          <h2>Enter the following details</h2>
+          <label for="classification">Call Number</label><br>
+          <input type="text" name="classification" placeholder="Enter Call Number*" required><br>
+          <button type="submit" class="btn btn-change">Change Call Number</button>
+          <button type="button" class="btn cancel btn-change" onclick="closeForm3()">Close</button>
+        </form>
+      </div>
+      <div class="form-popup" id="ModifyPublication">
+        <form method="POST" action="/update_bookbank" class="form-container">
+            {%csrf_token%}
+          <h2>Enter the following details</h2>
+          <label for="Publisher">Publisher</label><br>
+          <input type="text" name="publisher"  style="text-transform: capitalize;" placeholder="Enter Publisher*" required><br>
+          <button type="submit" class="btn btn-change" >Change Publisher</button>
+          <button type="button" class="btn cancel btn-change" onclick="closeForm4()">Close</button>
+        </form>
+      </div>
+      <div class="form-popup" id="ModifyCategory">
+        <form method="POST" action="/update_bookbank" class="form-container">
+            {%csrf_token%}
+          <h2>Enter the following details</h2>
+          <label for="category">Category</label><br>
+      <input type="text" name="category" placeholder="Enter Category*" required><br>
+          <button type="submit" class="btn btn-change" >Change Category</button>
+          <button type="button" class="btn cancel btn-change" onclick="closeForm5()">Close</button>
+        </form>
+      </div>
+      <div class="form-popup" id="ModifyDate">
+        <form method="POST" action="/update_bookbank" class="form-container">
+            {%csrf_token%}
+          <h2>Enter the following details</h2>
+          <label for="date">Year Of Publication</label><br>
+          <input type="text" name="yearpublication" placeholder="Enter Year*" required><br>
+          <button type="submit" class="btn btn-change" >Change Year</button>
+          <button type="button" class="btn cancel btn-change" onclick="closeForm6()">Close</button>
+        </form>
+      </div>
+      <div class="form-popup" id="ModifyPages">
+        <form method="POST" action="/update_bookbank" class="form-container">
+            {%csrf_token%}
+          <h2>Enter the following details</h2>
+          <label for="Pages">No. of Pages</label><br>
+          <input type="text" name="pages" placeholder="Enter Pages*" required><br>
+          <button type="submit" class="btn btn-change" >Change Pages</button>
+          <button type="button" class="btn cancel btn-change" onclick="closeForm7()">Close</button>
+        </form>
+      </div>
+      <div class="form-popup" id="ModifyCost">
+        <form method="POST" action="/update_bookbank" class="form-container">
+            {%csrf_token%}
+          <h2>Enter the following details</h2>
+          <label for="cost">Cost</label><br>
+          <input type="text" name="cost" placeholder="Enter Cost*" required><br>
+          <button type="submit" class="btn btn-change" >Change Cost</button>
+          <button type="button" class="btn cancel btn-change" onclick="closeForm8()">Close</button>
+        </form>
+      </div>
+      <div class="form-popup" id="ModifyEdition">
+        <form method="POST" action="/update_bookbank" class="form-container">
+            {%csrf_token%}
+          <h2>Enter the following details</h2>
+          <label for="Edition">Edition</label><br>
+          <input type="text" name="edition"  style="text-transform: capitalize;" placeholder="Enter Edition*" required><br>
+          <button type="submit" class="btn btn-change">Change Edition</button>
+          <button type="button" class="btn cancel btn-change" onclick="closeForm9()">Close</button>
+        </form>
+      </div>
+      <div class="form-popup" id="ModifyCopies">
+        <form method="POST" action="/update_bookbank" class="form-container">
+            {%csrf_token%}
+          <h2>Enter the following details</h2>
+          <label for="Copies">Volume</label><br>
+          <input type="text" name="volume" placeholder="Enter Volume*" required><br>
+          <button type="submit" class="btn btn-change" >Change Volume</button>
+          <button type="button" class="btn cancel btn-change" onclick="closeForm10()">Close</button>
+        </form>
+      </div>
+        <div class="form-popup" id="ModifyBill_no">
+        <form method="POST" action="/update_bookbank" class="form-container">
+            {%csrf_token%}
+          <h2>Enter the following details</h2>
+          <label >Bill Number</label><br>
+          <input type="text" name="bill_no" placeholder="Enter Bill Number*" required><br>
+          <button type="submit" class="btn btn-change" >Change Bill Number</button>
+          <button type="button" class="btn cancel btn-change" onclick="closeForm11()">Close</button>
+        </form>
+      </div>
+     <div class="form-popup" id="ModifyBill_date">
+        <form method="POST" action="/update_bookbank" class="form-container">
+            {%csrf_token%}
+          <h2>Enter the following details</h2>
+          <label >Bill Date</label><br>
+          <input type="date" name="bill_date" placeholder="Enter Bill Date*" required><br>
+          <button type="submit" class="btn btn-change" >Change Bill Date</button>
+          <button type="button" class="btn cancel btn-change" onclick="closeForm12()">Close</button>
+        </form>
+      </div>
+     <div class="form-popup" id="ModifyDate_p">
+        <form method="POST" action="/update_bookbank" class="form-container">
+            {%csrf_token%}
+          <h2>Enter the following details</h2>
+          <label >Date</label><br>
+          <input type="date" name="dates" placeholder="Enter Date*" required><br>
+          <button type="submit" class="btn btn-change" >Change Date</button>
+          <button type="button" class="btn cancel btn-change" onclick="closeForm13()">Close</button>
+        </form>
+      </div>
+     <div class="form-popup" id="ModifyPublish_from">
+        <form method="POST" action="/update_bookbank" class="form-container">
+            {%csrf_token%}
+          <h2>Enter the following details</h2>
+          <label >Published From</label><br>
+          <input type="text" name="purchased_from" placeholder="Enter Published From*" required><br>
+          <button type="submit" class="btn btn-change" >Change Published From</button>
+          <button type="button" class="btn cancel btn-change" onclick="closeForm14()">Close</button>
+        </form>
+      </div>
+    <div class="container">
+
+      <div class="row">
+
+
+            <table class="table table-bordered fgh1">
+
+
+              <tr><th>Accession no</th><td>{{accession_number}}</td><th>Bill no</th><td>{{bill_no}}</td></tr>
+
+                <tr > <th>Title</th><td>{{title}}</td><th>Bill Date </th><td>{{bill_date}}</td></tr>
+
+                <tr ><th>Author</th><td>{{author}}</td><th>Date </th><td>{{dates}}</td></tr>
+                <tr ><th>Call Number</th><td>{{classification}}</td><th> Publisher From</th><td>{{purchased_from}}</td></tr>
+<tr > <th>Volume</th><td>{{volume}}</td></tr>
+                <tr ><th>publisher</th><td>{{publisher}}</td></tr>
+                <tr > <th>Category</th><td>{{category}}</td></tr>
+                <tr > <th>Year of Publication</th><td>{{yearPublication}}</td></tr>
+                <tr > <th>Pages</th><td>{{no_pages}}</td></tr>
+                <tr > <th>Cost</th><td>{{cost}}</td></tr>
+                <tr > <th>edition</th><td>{{edition}}</td></tr>
+
+
+
+
+            </table>
+
+          </div>
+
+        </div>
+
+
+      <script>
+
+
+      function openForm() {
+        document.getElementById("ModifyTitle").style.display = "block";
+        document.getElementById("ModifyAuthor").style.display = "none";
+        document.getElementById("ModifyClassification").style.display = "none";
+        document.getElementById("ModifyPublication").style.display = "none";
+        document.getElementById("ModifyCategory").style.display = "none";
+        document.getElementById("ModifyDate").style.display = "none";
+        document.getElementById("ModifyPages").style.display = "none";
+        document.getElementById("ModifyCost").style.display = "none";
+        document.getElementById("ModifyEdition").style.display = "none";
+        document.getElementById("ModifyCopies").style.display = "none";
+        document.getElementById("ModifyPublish_from").style.display = "none";
+                document.getElementById("ModifyDate_p").style.display = "none";
+                 document.getElementById("ModifyBill_date").style.display = "none";
+                  document.getElementById("ModifyBill_no").style.display = "none";
+      }
+
+
+      function openForm2() {
+        document.getElementById("ModifyAuthor").style.display = "block";
+        document.getElementById("ModifyTitle").style.display = "none";
+        document.getElementById("ModifyClassification").style.display = "none";
+        document.getElementById("ModifyPublication").style.display = "none";
+        document.getElementById("ModifyCategory").style.display = "none";
+        document.getElementById("ModifyDate").style.display = "none";
+        document.getElementById("ModifyPages").style.display = "none";
+        document.getElementById("ModifyCost").style.display = "none";
+        document.getElementById("ModifyEdition").style.display = "none";
+        document.getElementById("ModifyCopies").style.display = "none";
+        document.getElementById("ModifyPublish_from").style.display = "none";
+                document.getElementById("ModifyDate_p").style.display = "none";
+                 document.getElementById("ModifyBill_date").style.display = "none";
+                  document.getElementById("ModifyBill_no").style.display = "none";
+      }
+
+      function openForm3() {
+        document.getElementById("ModifyClassification").style.display = "block";
+        document.getElementById("ModifyTitle").style.display = "none";
+        document.getElementById("ModifyAuthor").style.display = "none";
+        document.getElementById("ModifyPublication").style.display = "none";
+        document.getElementById("ModifyCategory").style.display = "none";
+        document.getElementById("ModifyDate").style.display = "none";
+        document.getElementById("ModifyPages").style.display = "none";
+        document.getElementById("ModifyCost").style.display = "none";
+        document.getElementById("ModifyEdition").style.display = "none";
+        document.getElementById("ModifyCopies").style.display = "none";
+        document.getElementById("ModifyPublish_from").style.display = "none";
+                document.getElementById("ModifyDate_p").style.display = "none";
+                 document.getElementById("ModifyBill_date").style.display = "none";
+                  document.getElementById("ModifyBill_no").style.display = "none";
+
+      }
+
+      function openForm4() {
+        document.getElementById("ModifyPublication").style.display = "block";
+        document.getElementById("ModifyTitle").style.display = "none";
+        document.getElementById("ModifyAuthor").style.display = "none";
+        document.getElementById("ModifyClassification").style.display = "none";
+        document.getElementById("ModifyCategory").style.display = "none";
+        document.getElementById("ModifyDate").style.display = "none";
+        document.getElementById("ModifyPages").style.display = "none";
+        document.getElementById("ModifyCost").style.display = "none";
+        document.getElementById("ModifyEdition").style.display = "none";
+        document.getElementById("ModifyCopies").style.display = "none";
+        document.getElementById("ModifyPublish_from").style.display = "none";
+                document.getElementById("ModifyDate_p").style.display = "none";
+                 document.getElementById("ModifyBill_date").style.display = "none";
+                  document.getElementById("ModifyBill_no").style.display = "none";
+
+      }
+
+      function openForm5() {
+        document.getElementById("ModifyCategory").style.display = "block";
+        document.getElementById("ModifyTitle").style.display = "none";
+        document.getElementById("ModifyAuthor").style.display = "none";
+        document.getElementById("ModifyClassification").style.display = "none";
+        document.getElementById("ModifyPublication").style.display = "none";
+        document.getElementById("ModifyDate").style.display = "none";
+        document.getElementById("ModifyPages").style.display = "none";
+        document.getElementById("ModifyCost").style.display = "none";
+        document.getElementById("ModifyEdition").style.display = "none";
+        document.getElementById("ModifyCopies").style.display = "none";
+        document.getElementById("ModifyPublish_from").style.display = "none";
+                document.getElementById("ModifyDate_p").style.display = "none";
+                 document.getElementById("ModifyBill_date").style.display = "none";
+                  document.getElementById("ModifyBill_no").style.display = "none";
+
+      }
+
+
+            function openForm6() {
+              document.getElementById("ModifyDate").style.display = "block";
+              document.getElementById("ModifyTitle").style.display = "none";
+              document.getElementById("ModifyAuthor").style.display = "none";
+              document.getElementById("ModifyClassification").style.display = "none";
+              document.getElementById("ModifyPublication").style.display = "none";
+              document.getElementById("ModifyCategory").style.display = "none";
+              document.getElementById("ModifyPages").style.display = "none";
+              document.getElementById("ModifyCost").style.display = "none";
+              document.getElementById("ModifyEdition").style.display = "none";
+              document.getElementById("ModifyCopies").style.display = "none";
+              document.getElementById("ModifyPublish_from").style.display = "none";
+                      document.getElementById("ModifyDate_p").style.display = "none";
+                       document.getElementById("ModifyBill_date").style.display = "none";
+                        document.getElementById("ModifyBill_no").style.display = "none";
+            }
+
+
+
+                        function openForm7() {
+                          document.getElementById("ModifyPages").style.display = "block";
+                          document.getElementById("ModifyTitle").style.display = "none";
+                          document.getElementById("ModifyAuthor").style.display = "none";
+                          document.getElementById("ModifyClassification").style.display = "none";
+                          document.getElementById("ModifyPublication").style.display = "none";
+                          document.getElementById("ModifyCategory").style.display = "none";
+                          document.getElementById("ModifyDate").style.display = "none";
+                          document.getElementById("ModifyCost").style.display = "none";
+                          document.getElementById("ModifyEdition").style.display = "none";
+                          document.getElementById("ModifyCopies").style.display = "none";
+                          document.getElementById("ModifyPublish_from").style.display = "none";
+                                  document.getElementById("ModifyDate_p").style.display = "none";
+                                   document.getElementById("ModifyBill_date").style.display = "none";
+                                    document.getElementById("ModifyBill_no").style.display = "none";
+                        }
+                        function openForm8() {
+                          document.getElementById("ModifyCost").style.display = "block";
+                          document.getElementById("ModifyTitle").style.display = "none";
+                          document.getElementById("ModifyAuthor").style.display = "none";
+                          document.getElementById("ModifyClassification").style.display = "none";
+                          document.getElementById("ModifyPublication").style.display = "none";
+                          document.getElementById("ModifyCategory").style.display = "none";
+                          document.getElementById("ModifyDate").style.display = "none";
+                          document.getElementById("ModifyPages").style.display = "none";
+                          document.getElementById("ModifyEdition").style.display = "none";
+                          document.getElementById("ModifyCopies").style.display = "none";
+                          document.getElementById("ModifyPublish_from").style.display = "none";
+                                  document.getElementById("ModifyDate_p").style.display = "none";
+                                   document.getElementById("ModifyBill_date").style.display = "none";
+                                    document.getElementById("ModifyBill_no").style.display = "none";
+                      }
+                      function openForm9() {
+                        document.getElementById("ModifyEdition").style.display = "block";
+                        document.getElementById("ModifyTitle").style.display = "none";
+                        document.getElementById("ModifyAuthor").style.display = "none";
+                        document.getElementById("ModifyClassification").style.display = "none";
+                        document.getElementById("ModifyPublication").style.display = "none";
+                        document.getElementById("ModifyCategory").style.display = "none";
+                        document.getElementById("ModifyDate").style.display = "none";
+                        document.getElementById("ModifyPages").style.display = "none";
+                        document.getElementById("ModifyCost").style.display = "none";
+                        document.getElementById("ModifyCopies").style.display = "none";
+                        document.getElementById("ModifyPublish_from").style.display = "none";
+                                document.getElementById("ModifyDate_p").style.display = "none";
+                                 document.getElementById("ModifyBill_date").style.display = "none";
+                                  document.getElementById("ModifyBill_no").style.display = "none";
+                      }
+                      function openForm10() {
+                        document.getElementById("ModifyCopies").style.display = "block";
+                        document.getElementById("ModifyTitle").style.display = "none";
+                        document.getElementById("ModifyAuthor").style.display = "none";
+                        document.getElementById("ModifyClassification").style.display = "none";
+                        document.getElementById("ModifyPublication").style.display = "none";
+                        document.getElementById("ModifyCategory").style.display = "none";
+                        document.getElementById("ModifyDate").style.display = "none";
+                        document.getElementById("ModifyPages").style.display = "none";
+                        document.getElementById("ModifyCost").style.display = "none";
+                        document.getElementById("ModifyEdition").style.display = "none";
+                        document.getElementById("ModifyPublish_from").style.display = "none";
+                                document.getElementById("ModifyDate_p").style.display = "none";
+                                 document.getElementById("ModifyBill_date").style.display = "none";
+                                  document.getElementById("ModifyBill_no").style.display = "none";
+                      }
+                      function openForm11() {
+                       document.getElementById("ModifyBill_no").style.display = "block";
+                        document.getElementById("ModifyCopies").style.display = "none";
+                        document.getElementById("ModifyTitle").style.display = "none";
+                        document.getElementById("ModifyAuthor").style.display = "none";
+                        document.getElementById("ModifyClassification").style.display = "none";
+                        document.getElementById("ModifyPublication").style.display = "none";
+                        document.getElementById("ModifyCategory").style.display = "none";
+                        document.getElementById("ModifyDate").style.display = "none";
+                        document.getElementById("ModifyPages").style.display = "none";
+                        document.getElementById("ModifyCost").style.display = "none";
+                        document.getElementById("ModifyEdition").style.display = "none";
+                        document.getElementById("ModifyPublish_from").style.display = "none";
+                             document.getElementById("ModifyDate_p").style.display = "none";
+                              document.getElementById("ModifyBill_date").style.display = "none";
+                      }
+                      function openForm12() {
+                       document.getElementById("ModifyBill_date").style.display = "block";
+                        document.getElementById("ModifyCopies").style.display = "none";
+                        document.getElementById("ModifyTitle").style.display = "none";
+                        document.getElementById("ModifyAuthor").style.display = "none";
+                        document.getElementById("ModifyClassification").style.display = "none";
+                        document.getElementById("ModifyPublication").style.display = "none";
+                        document.getElementById("ModifyCategory").style.display = "none";
+                        document.getElementById("ModifyDate").style.display = "none";
+                        document.getElementById("ModifyPages").style.display = "none";
+                        document.getElementById("ModifyCost").style.display = "none";
+                        document.getElementById("ModifyEdition").style.display = "none";
+                        document.getElementById("ModifyPublish_from").style.display = "none";
+                           document.getElementById("ModifyDate_p").style.display = "none";
+                            document.getElementById("ModifyBill_no").style.display = "none";
+
+
+                      }
+                      function openForm13() {
+                      document.getElementById("ModifyDate_p").style.display = "block";
+                        document.getElementById("ModifyCopies").style.display = "none";
+                        document.getElementById("ModifyTitle").style.display = "none";
+                        document.getElementById("ModifyAuthor").style.display = "none";
+                        document.getElementById("ModifyClassification").style.display = "none";
+                        document.getElementById("ModifyPublication").style.display = "none";
+                        document.getElementById("ModifyCategory").style.display = "none";
+                        document.getElementById("ModifyDate").style.display = "none";
+                        document.getElementById("ModifyPages").style.display = "none";
+                        document.getElementById("ModifyCost").style.display = "none";
+                        document.getElementById("ModifyEdition").style.display = "none";
+                        document.getElementById("ModifyPublish_from").style.display = "none";
+                         document.getElementById("ModifyBill_date").style.display = "none";
+                          document.getElementById("ModifyBill_no").style.display = "none";
+                      }
+                      function openForm14() {
+                      document.getElementById("ModifyPublish_from").style.display = "block";
+                        document.getElementById("ModifyCopies").style.display = "none";
+                        document.getElementById("ModifyTitle").style.display = "none";
+                        document.getElementById("ModifyAuthor").style.display = "none";
+                        document.getElementById("ModifyClassification").style.display = "none";
+                        document.getElementById("ModifyPublication").style.display = "none";
+                        document.getElementById("ModifyCategory").style.display = "none";
+                        document.getElementById("ModifyDate").style.display = "none";
+                        document.getElementById("ModifyPages").style.display = "none";
+                        document.getElementById("ModifyCost").style.display = "none";
+                        document.getElementById("ModifyEdition").style.display = "none";
+                              document.getElementById("ModifyDate_p").style.display = "none";
+                         document.getElementById("ModifyBill_date").style.display = "none";
+                          document.getElementById("ModifyBill_no").style.display = "none";
+                      }
+                      function openForm15() {
+                        document.getElementById("ModifyCopies").style.display = "block";
+                        document.getElementById("ModifyTitle").style.display = "none";
+                        document.getElementById("ModifyAuthor").style.display = "none";
+                        document.getElementById("ModifyClassification").style.display = "none";
+                        document.getElementById("ModifyPublication").style.display = "none";
+                        document.getElementById("ModifyCategory").style.display = "none";
+                        document.getElementById("ModifyDate").style.display = "none";
+                        document.getElementById("ModifyPages").style.display = "none";
+                        document.getElementById("ModifyCost").style.display = "none";
+                        document.getElementById("ModifyEdition").style.display = "none";
+                                document.getElementById("ModifyDate_p").style.display = "none";
+                      }
+      function closeForm() {
+        document.getElementById("ModifyTitle").style.display = "none";
+      }
+      function closeForm2() {
+        document.getElementById("ModifyAuthor").style.display = "none";
+      }
+
+      function closeForm3() {
+        document.getElementById("ModifyClassification").style.display = "none";
+      }
+
+      function closeForm4() {
+        document.getElementById("ModifyPublication").style.display = "none";
+      }
+
+      function closeForm5() {
+        document.getElementById("ModifyCategory").style.display = "none";
+      }
+      function closeForm6() {
+        document.getElementById("ModifyDate").style.display = "none";
+      }
+      function closeForm7() {
+        document.getElementById("ModifyPages").style.display = "none";
+      }
+
+      function closeForm8() {
+        document.getElementById("ModifyCost").style.display = "none";
+      }
+
+      function closeForm9() {
+        document.getElementById("ModifyEdition").style.display = "none";
+      }
+
+      function closeForm10() {
+        document.getElementById("ModifyCopies").style.display = "none";
+      }
+      function closeForm11() {
+        document.getElementById("ModifyBill_no").style.display = "none";
+      }
+      function closeForm12() {
+        document.getElementById("ModifyBill_date").style.display = "none";
+      }
+      function closeForm13() {
+        document.getElementById("ModifyDate_p").style.display = "none";
+      }
+      function closeForm14() {
+        document.getElementById("ModifyPublish_from").style.display = "none";
+      }
+
+      function warn() {
+      confirm("Do you really want to log out of this session!!!");
+
+      }
+
+      </script>
+
+  </body>
+</html>

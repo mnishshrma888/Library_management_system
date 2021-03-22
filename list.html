@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+      <style>
+
+		.id1{
+
+   width: 100%;
+    }
+    .log1{
+  color: #fff;
+  position: absolute;
+  left: 1150px;
+  top: 10px;
+  }
+
+	.id{
+
+    	position: absolute;
+
+      top: 110px;
+
+      left: 300px;
+
+
+
+
+    </style>
+    <meta charset="utf-8">
+    <title></title>
+      {% load static %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <link rel="stylesheet" href="{%static 'css\book.css'%}">
+  </head>
+  <body>
+    <div class="container-fluid p3 info">
+      <div class="row">
+        <div class="col d-flex justify-content-between align-items-baseline flex-wrap">
+          <h2 class="primary-color info p-2 text-capitalize">Accession Register</h2>
+          <div class="container ml-auto">
+             <form action="/handle_logout" method="POST">
+  {%csrf_token%}
+          <button type="submit"  class="btn btn-outline-dark align-items-end log1" onclick="warn()">Log Out</button></a>
+</form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="container">
+    <div class="row">
+        <div class="col-md-6 login-form-1">
+            <h3 class="head">Accession Register</h3>
+            <form id="hide" class="form-container" action="/accession_register"  method="POST">
+            {%csrf_token%}
+
+                 <div class="form-group">
+
+              <label>Date from</label>
+
+              <input type="date"  name="dates"  class="form-control"  />
+                </div>
+                <div class="form-group">
+
+              <label>Date To</label>
+
+              <input type="date"  name="dates1"  class="form-control"  />
+                </div>
+
+                         <div class="form-group title">
+
+              <label >Book Title</label>
+
+              <input type="text" name="title" class="form-control"  style="text-transform: capitalize;" placeholder="Title*" value="" />
+
+            </div>
+                          <div class="form-group a1">
+
+              <label >Subject</label>
+
+              <input type="text" name="category" class="form-control" placeholder="Subject" value=""  />
+
+            </div>
+                <div>
+
+              <label >Title Wise </label>
+
+              <input type="checkbox"  name="title_wise"   value="yes"/>
+                </div>
+                <div>
+
+              <label >Subject Wise  </label>
+
+              <input type="checkbox"  name="category_wise"   value="yes"/>
+                </div>
+
+                    <div>
+
+              <label >Include Write Off</label>
+
+              <input type="checkbox"  name="withdrawal"   value="yes"/>
+                </div>
+
+          <!--         <div class="form-group title">
+
+              <label >Accession Number To</label>
+
+              <input type="number" name="accession_to" class="form-control"  style="text-transform: capitalize;" placeholder="Accession Number To*" value="" />
+
+            </div>
+                   <div class="form-group title">
+
+              <label >Accession Number From</label>
+
+              <input type="number" name="accession_from" class="form-control"  style="text-transform: capitalize;" placeholder="Accession Number From*" value="" />
+
+            </div>
+-->
+           <div style="position:absolute;top:45%;left:60%;margin:-100px 0 0 -150px;">
+        {% for message in messages %}
+      <h6><i><font color="red">{{message}}</font></i></h6>
+        {% endfor %}</div>
+                      <div class="form-group">
+
+              <button type="submit" class="btn" >Submit</button>
+
+                          <a href="/main"> <button type="button" class="btn btn_cancel">Close</button></a>
+                          </div>
+
+            </form>
+
+
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+
+
+  </body>
+</html>

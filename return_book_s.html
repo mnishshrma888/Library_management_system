@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/6f277702bf.js" crossorigin="anonymous"></script>
+  <style> /*internal css*/
+
+    .info{
+      font-family: serif;
+      font-size: 30px;
+      width: 101%;
+      background-color: #dc3545;
+      align-items: center;
+      word-spacing: 0.6rem;
+      color: #fff;
+    }
+
+    .due-day{
+      position: absolute;
+      left: 450px;
+      top: 115px;
+      width: 65%;
+    }
+
+    .due-date{
+      position: absolute;
+      left: 450px;
+      top: 230px;
+      width: 65%;
+    }
+
+    .student_id{
+      width:100%;
+    }
+
+
+    .log{
+      color: #fff;
+        position: absolute;
+        left: 1450px;
+        top: 10px;
+      }
+
+    .log .z{
+        color: #fff;
+    }
+
+    .login-form-1{
+        position: absolute;
+        top: 100px;
+        left: 380px;
+        padding: 5%;
+        background: #fff;
+        border: 3px solid #f1f1f1;
+        z-index: 9;
+        width:85%;
+        box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .login-form-2{
+        position: absolute;
+        top: 100px;
+        left: 813px;
+        padding: 5%;
+        background: #fff;
+        border: 3px solid #f1f1f1;
+        width:65%;
+    }
+
+    .login-form-1 .btnSubmit{
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 40px;
+        border: none;
+        cursor: pointer;
+        width: 18%;
+        margin-bottom:10px;
+        margin-left: 5px;
+        opacity: 0.8;
+    }
+
+    .form-container input[type=text] , .form-container input[type=number], .form-container input[type=date],.form-container input[type=tel], .form-container input[type=email], .form-container select {
+        width: 50%;
+        padding: 15px;
+        margin: 5px 0 22px 0;
+        border: none;
+        background: #f1f1f1;
+    }
+
+    .title input[type=text]{
+      width: 107%;
+      padding: 15px;
+      margin: 5px 0 22px 0;
+      border: none;
+      background: #f1f1f1;
+    }
+
+
+    .f1{
+        width: 100%;
+        padding: 20px;
+        margin: 5px 0 22px 0;
+        border: none;
+        background: #f1f1f1;
+    }
+
+.f2{
+        width: 60%;
+        padding: 15px;
+        margin: 50px 0 22px 0;
+        border: none;
+        background: #f1f1f1;
+    }
+    .a1 input[type = text]{
+        width: 107%;
+        padding: 15px;
+        margin: 5px 0 22px 0;
+        border: none;
+        background: #f1f1f1;
+    }
+
+
+    .login-form-1 .btn{
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        width: 45%;
+        margin-bottom:10px;
+        margin-left: 40px;
+        opacity: 0.8;
+    }
+
+    .login-form-1 .btn_cancel{
+        background-color: red;
+        color: white;
+        padding: 10px 10px;
+        border: none;
+        cursor: pointer;
+        width: 45%;
+        margin-bottom:10px;
+        margin-left: 5px;
+        opacity: 0.8;
+    }
+
+    a{
+        color: white;
+    }
+
+    .s1{
+        width: 100%;
+        margin-left: 5px;
+        padding: 5px 50px;
+    }
+
+    @media (max-width: 996px) {
+      .info{
+        text-align: center;
+      }
+        .log{
+          position: absolute;
+          left:800px;
+        }
+        .login-form-1 .btn{
+          width: 40%;
+        }
+        .login-form-1 .btn_cancel{
+          width: 30%;
+        }
+      }
+    </style>
+</head>
+<body>
+
+    <div class="container-fluid p3 info"> <!-- Banner Section -->
+
+      <div class="row">
+        <div class="col d-flex justify-content-center align-items-center flex-wrap">
+          <h2 class="primary-color info p-2 text-capitalize"><center>Return Book(Student)</center>
+          </h2>
+            <div class="container ml-auto">
+               <form action="/handle_logout" method="POST">
+  {%csrf_token%}
+          <button type="submit"  class="btn btn-outline-dark align-items-end log" onclick="warn()">Log Out</button></a>
+</form> </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container"> <!-- Student Form Container -->
+<div style="position:absolute;top:25%;left:50%;margin:-100px 0 0 -150px;">
+        {% for message in messages %}
+      <h6><i><font color="red">{{message}}</font></i></h6>
+        {% endfor %}</div>
+      <div class="row">
+        <div class="col-md-6 login-form-1"> <!-- Student Master Form -->
+          <h3 class="head">Return Book (Student)</h3>
+          <form id="hide" class="form-container" action="/return_books_s"  method="POST">
+            {%csrf_token%}
+
+            <div class="form-group student_id">
+
+              <label>Issue date</label>
+              <!--<input type="text" name="std_id" class="form-control" placeholder="Student ID *" value="" required/>-->
+            <div class="form-control f1">
+              {{i_date}}
+            </div>
+
+            <div class="form-group student_id">
+
+              <label>Due date</label>
+              <!--<input type="text" name="std_id" class="form-control" placeholder="Student ID *" value="" required/>-->
+            <div class="form-control f1">
+              {{r_date}}
+            </div>
+
+            <div class="form-group">
+
+              <label >Return Date</label>
+              <input type="date" name="return_date" class="form-control" placeholder="Return Date *" value="" required/>
+
+            </div>
+            <div class="form-group student_id">
+
+              <label>Student ID</label>
+              <!--<input type="text" name="std_id" class="form-control" placeholder="Student ID *" value="" required/>-->
+            <div class="form-control f1">
+              {{id}}
+            </div>
+
+            <div class="form-group student_id">
+
+              <label >Student Name</label>
+              <!--<input type="text" class="form-control" placeholder="Student Name*" value="" />-->
+               <div class="form-control f1">
+                 {{name}}
+            </div>
+
+
+
+
+            <div class="form-group student_id">
+
+              <label >Father Name</label>
+              <div class="form-control f1">
+               {{fname}}
+              </div>
+            </div>
+
+            <div class="form-group student_id">
+
+              <label >Gender</label>
+              <div class="form-control f1">
+                {{gender}}
+              </div>
+            </div>
+
+            <div class="form-group student_id">
+
+              <label >Contact Number</label>
+              <div class="form-control f1">
+                {{contact_no}}
+              </div>
+            </div>
+
+            <div class="form-group student_id">
+
+              <label >Left Institute</label>
+              <div class="form-control f1">
+                {{left}}
+              </div>
+            </div>
+
+
+            <hr>
+
+            <div class="form-group a1">
+
+              <label>Accession Number</label>
+              <!--<a href="/click_i"> <button type="submit" class="btn ">Scan</button></a>-->
+            <div class="form-control f1">{{a_id}}
+            </div>
+
+            <div class="form-group student_id">
+
+              <label >Book Title</label>
+              <div class="form-control f1">
+                {{title}}
+              </div>
+            </div>
+
+            <div class="form-group student_id">
+
+              <label >Year Of Publication</label>
+              <div class="form-control f1">
+                {{yop}}
+              </div>
+            </div>
+
+            <div class="form-group student_id">
+
+              <label >Number of Pages</label>
+              <div class="form-control f1">
+                {{nop}}
+              </div>
+            </div>
+
+            <div class="form-group student_id">
+
+              <label >Cost Of Book</label>
+              <div class="form-control f1">
+                {{cob}}
+              </div>
+            </div>
+
+            <div class="form-group student_id">
+
+              <label >Edition Number</label>
+              <div class="form-control f1">
+                {{edition}}
+              </div>
+            </div>
+
+<div class="form-group student_id">
+
+              <label >Fine</label>
+              <div class="form-control f1">
+                {{fine}}
+              </div>
+            </div>
+
+<div class="form-group student_id">
+
+              <label >Number of books Issued</label>
+              <div class="form-control f1">
+                {{no_book}}
+              </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+                  <div class="form-group">
+
+                    <button type="submit" class="btn" >Return</button>
+                    <a href="/main">  <button type="button" class="btn btn_cancel">Close</button></a>
+
+                  </div>
+              </form>
+          </div>
+      </div>
+    </div>
+
+   <!-- <div class="container">  Search bar Conatiner
+
+      <div class="row"> Search-Bar
+
+        <div class="col-md-6 login-form-2">
+          <h3>Search using below Bar</h3>
+
+          <div>
+            <input type="text" id="one" placeholder="Title">
+
+                  <input type="text" id="three" placeholder="Author Name">
+
+                  <button class="btn-dark"onclick="add()">Search</button>
+
+                  <table class="table table-bordered">
+
+                    <thead>
+
+                      <th>Accession no.</th>
+                        <th>title</th>
+                        <th>Author</th>
+                        <th>publisher</th>
+                        <th>edition</th>
+
+                      </thead>
+
+                      <tbody id="data">
+
+                      </tbody>
+
+                  </table>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>-->
+
+    <script>/* Functionality Section*/
+
+
+      function closeForm() {
+        document.getElementById("return").style.display = "none";
+      }
+
+        function delete() {
+            document.getElementById("hide").style.display="none";
+        }
+
+        function myFunction() {
+            alert("Book Added Successfully!");
+        }
+
+        function warn() {
+            confirm("Do you really want to log out of this session!!!");
+        }
+
+        var newone=[]
+
+        var newthree=[]
+
+        function add(){
+          var one=document.getElementById('one').value;
+            newone.push(one);
+            newone.push(three);
+            listshow();
+        }
+        function listshow(){
+            var list=""
+            for(var i=0;i<newone.length;i++){list+= "<tr><td>"+(i+1)+"</td>"+"<td>"+newone[i]+"</td>"+"<td>"+newtwo[i]+"</td>"+"<td>"+newthree[i]+"</td>"+"<td>"+"<button onclick='edt("+i+")'>Edit</button><button onclick='del("+i+")'>Delete</button>"+"</td></tr>"
+          }
+      document.getElementById('data').innerHTML=list
+      }
+  </script>
+</body>
+</html>

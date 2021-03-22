@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+<head>
+ {% load static %}
+  <meta charset="utf-8">
+
+  <title></title>
+    <style>
+           .log1 {
+  color: #fff;
+  position: fixed;
+  left: 1050px;
+  top: 10px;
+}
+    </style>
+
+  <script src="https://kit.fontawesome.com/6f277702bf.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="{%static 'css\styles.css'%}">
+
+</head>
+
+<body>
+
+  <div class="container-fluid p3 info">
+
+    <div class="row">
+
+      <div class="col d-flex justify-content-center align-items-center flex-wrap">
+
+        <h2 class="primary-color info p-2 text-capitalize">SIE Book Bank Management System</h2>
+
+        <div class="container ml-auto">
+<form action="/handle_logout" method="POST">
+  {%csrf_token%}
+    <a href="/main">
+          <button type="button"  class="btn btn-outline-dark align-items-end log1" >Home</button></a>
+</form>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+
+        <span class="navbar-toggler-icon"></span>
+
+      </button>
+
+      <a class="navbar-brand" href="#">Book Bank</a>
+
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+
+        <ul class="navbar-nav">
+
+          <li class="nav-item dropdown">
+
+            <a class="nav-link" href="/add_bookbank" id="navbarDropdownMenuLink"  aria-expanded="false">
+
+             Book Bank Master
+
+            </a>
+
+
+
+          </li>
+
+          <li class="nav-item dropdown">
+
+            <a class="nav-link " href="/get_u_bb" id="navbarDropdownMenuLink" aria-expanded="false">
+
+Edit
+            </a>
+
+
+          </li>
+
+         <!-- <li class="nav-item dropdown">
+
+            <a class="nav-link " href="/delete_bookbank" id="navbarDropdownMenuLink" aria-expanded="false">
+
+              Delete
+
+            </a>
+
+
+
+          </li>-->
+
+
+
+          <li>
+
+            <a class="nav-link " href="/barcode_gen_bb" id="navbarDropdownMenuLink"  aria-expanded="false">
+
+              Barcode generator
+
+            </a>
+
+          </li>
+
+          <li class="nav-item dropdown">
+
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Report
+
+            </a>
+
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+
+            <a class="dropdown-item" href="/issue_register_bb">Issue/Return Book Bank Register</a>
+
+          <!--  <a class="dropdown-item" href="/return_register_bb">Return Book Bank Register</a>-->
+            <a class="dropdown-item" href="/over_due_bb">Overdue Book Bank Register</a>
+                        <a class="dropdown-item" href="/pending_bb">Pending Book Bank Register</a>
+
+
+
+
+            <hr>
+
+            <a class="dropdown-item" href="/accession_register_bb">Accession Book Bank Register</a>
+             <a class="dropdown-item" href="/withdraw_register_bb">Write Off Book Bank Register</a>
+            <hr>
+              <hr>
+<a class="dropdown-item" href="/withdrawal_bookbank">Write Off Book Bank </a>
+             <a class="dropdown-item" href="/write_in_bookbank">Write In Book Bank </a>
+
+          </div>
+
+
+      </ul>
+
+    </nav>
+
+  </div>
+
+  <div>
+
+    <nav class="navbar-expand-lg navbar-dark bg-danger">
+
+      <ul class="nav-list">
+
+        <li class="nav-list-item">
+
+          <i class="fas fa-user-friends fa-3x f1"></i>
+
+          <a href="get_i_s_bb" class="nav-link">Issue</a>
+
+        </li>
+
+        <li class="nav-list-item">
+
+          <i class="fas fa-user-friends fa-3x f1"></i>
+
+          <a href="get_r_s_bb" class="nav-link">Return</a>
+
+        </li>
+
+
+
+        <li class="nav-list-item">
+
+          <i class="fas fa-book fa-3x f2"></i>
+
+          <a href="/issue_register_bb" class="nav-link">Issue/Return Reg.</a>
+
+        </li>
+
+       <!-- <li class="nav-list-item">
+
+          <i class="fas fa-book fa-3x f2"></i>
+
+          <a href="/return_register_bb" class="nav-link">Return Reg.</a>
+
+        </li>-->
+
+        <li class="nav-list-item">
+
+          <i class="fas fa-exclamation-triangle fa-3x f2"></i>
+
+          <a href="/barcode_gen_bb" class="nav-link">Barcode Generator.</a>
+
+        </li>
+
+
+         <li class="nav-list-item">
+
+          <i class="fas fa-stopwatch fa-3x f3"></i>
+
+          <a href="/pending_bb" class="nav-link">Pending</a>
+
+        </li>
+          <li class="nav-list-item">
+
+          <i class="fas fa-window-close fa-3x f1 "></i>
+
+          <a href="/main" class="nav-link">Exit</a>
+
+        </li>
+
+
+
+      </ul>
+
+    </nav>
+
+  </div>
+  <div style="position:absolute;top:55%;left:50%;margin:-100px 0 0 -150px;">
+        {% for message in messages %}
+      <h6><i><font color="red">{{message}}</font></i></h6>
+        {% endfor %}</div>
+
+  <script>
+    function warn() {
+      confirm("Do you really want to log out of this session!!!");
+
+    }
+  </script>
+
+</body>
+
+</html>

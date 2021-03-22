@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title></title>
+
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+.info{
+  font-family: serif;
+  font-size: 25px;
+  background-color:#dc3545;
+  padding: 10px 630px;
+    word-spacing: 0.6rem;
+    color: #fff;
+}
+.log{
+
+  position: absolute;
+  left: 800px;
+  top: 10px;
+}
+.open-button1 {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  top:500px;
+  left:300px;
+  position: absolute;
+  width: 280px;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: absolute;
+  top:150px;
+  left: 650px;
+  border: 2.5px solid #f1f1f1;
+  z-index: 9;
+  width:40%
+}
+
+.form-popup1 {
+
+  display: none;
+  position: absolute;
+  top:300px;
+  left: 450px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+  width:35%;
+}
+
+/* Add styles to the form container */
+.form-container {
+  position: relative;
+  max-width: 100%;
+  padding: 5px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=text], .form-container input[type=date], .form-container input[type=email], .form-container input[type=tel]  {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 10px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus,.form-container input[type=date]:focus, .form-container input[type=text]:focus {
+  background-color: #ddd;
+  width: 60%;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+.btn-Ascession{
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  position: absolute;
+  left: 150px;
+  top: 100px;
+  border: none;
+  cursor: pointer;
+  width: 31%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+.btn-title {
+   background-color: #4CAF50;
+   color: white;
+   padding: 16px 10px;
+   border: none;
+   position: absolute;
+   top: 150px;
+   left: 140px;
+   border-radius: 5%;
+   cursor: pointer;
+   width: 15%;
+   margin:10px 10px;
+   opacity: 0.8;
+ }
+ .btn-author {
+     background-color: #4CAF50;
+     color: white;
+     padding: 16px 10px;
+     border: none;
+     position: absolute;
+     top: 150px;
+     left: 380px;
+     border-radius: 5%;
+     cursor: pointer;
+     width: 15%;
+     margin:10px 10px;
+     opacity: 0.8;
+   }
+   .btn-author0 {
+     background-color: #4CAF50;
+     color: white;
+     padding: 16px 10px;
+     border: none;
+     position: absolute;
+     top: 450px;
+     left: 140px;
+     border-radius: 5%;
+     cursor: pointer;
+     width: 15%;
+     margin:10px 10px;
+     opacity: 0.8;
+   }
+  .btn-classification {
+      background-color: #4CAF50;
+      color: white;
+      padding: 16px 10px;
+      border: none;
+      position: absolute;
+      top: 210px;
+      left: 380px;
+      border-radius: 5%;
+      cursor: pointer;
+      width: 15%;
+      margin:10px 10px;
+      opacity: 0.8;
+    }
+    
+    .btn-publication {
+      background-color: #4CAF50;
+      color: white;
+      padding: 16px 10px;
+      border: none;
+      position: absolute;
+      top: 210px;
+      left: 140px;
+      border-radius: 5%;
+      cursor: pointer;
+      width: 15%;
+      margin:10px 10px;
+      opacity: 0.8;
+    }
+
+    .btn-category {
+      background-color: #4CAF50;
+      color: white;
+      padding: 16px 10px;
+      border: none;
+      position: absolute;
+      top: 270px;
+      left: 380px;
+      border-radius: 5%;
+      cursor: pointer;
+      width: 15%;
+      margin:10px 10px;
+      opacity: 0.8;
+    }
+
+    .btn-year {
+      background-color: #4CAF50;
+      color: white;
+      padding: 16px 10px;
+      border: none;
+      position: absolute;
+      top: 270px;
+      left: 140px;
+      border-radius: 5%;
+      cursor: pointer;
+      width: 15%;
+      margin:10px 10px;
+      opacity: 0.8;
+    }
+
+    .btn-pages {
+      background-color: #4CAF50;
+      color: white;
+      padding: 16px 10px;
+      border: none;
+      position: absolute;
+      top: 330px;
+      left: 380px;
+      border-radius: 5%;
+      cursor: pointer;
+      width: 15%;
+      margin:10px 10px;
+      opacity: 0.8;
+    }
+
+    .btn-cost {
+      background-color: #4CAF50;
+      color: white;
+      padding: 16px 10px;
+      border: none;
+      position: absolute;
+      top: 330px;
+      left: 140px;
+      border-radius: 5%;
+      cursor: pointer;
+      width: 15%;
+      margin:10px 10px;
+      opacity: 0.8;
+    }
+
+    .btn-edition {
+      background-color: #4CAF50;
+      color: white;
+      padding: 16px 10px;
+      border: none;
+      position: absolute;
+      top: 390px;
+      left: 380px;
+      border-radius: 5%;
+      cursor: pointer;
+      width: 15%;
+      margin:10px 10px;
+      opacity: 0.8;
+    }
+
+    .btn-copies {
+      background-color: #4CAF50;
+      color: white;
+      padding: 16px 10px;
+      border: none;
+      position: absolute;
+      top: 390px;
+      left: 140px;
+      border-radius: 5%;
+      cursor: pointer;
+      width: 15%;
+      margin:10px 10px;
+      opacity: 0.8;
+    }
+    .btn-address {
+      background-color: #4CAF50;
+      color: white;
+      padding: 16px 10px;
+      border: none;
+      position: absolute;
+      top: 450px;
+      left: 380px;
+      border-radius: 5%;
+      cursor: pointer;
+      width: 15%;
+      margin:10px 10px;
+      opacity: 0.8;
+    }
+ .btn-author1 {
+     background-color: #4CAF50;
+     color: white;
+     padding: 16px 10px;
+     border: none;
+     position: absolute;
+     top: 450px;
+     left: 140px;
+     border-radius: 5%;
+     cursor: pointer;
+     width: 31%;
+     margin:10px 10px;
+     opacity: 0.8;
+   }
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+
+</style>
+  </head>
+  <body>
+    <div class="container-fluid p3 info">
+      <div class="row">
+        <div class="col d-flex justify-content-between align-items-baseline flex-wrap">
+          <h2 class="primary-color info p-2 text-capitalize">Employee Manager</h2>
+          <div class="container ml-auto">
+              <form action="/handle_logout" method="POST">
+  {%csrf_token%}
+          <button type="submit"  class="btn btn-outline-dark align-items-end log" onclick="warn()">Log Out</button></a>
+</form>  </div>
+        </div>
+      </div>
+    </div>
+
+    
+        <button type="button" class="btn-title" onclick="openForm()">Modify D.O.J</button>
+        <button type="button" class="btn-author" onclick="openForm2()">Modify Name</button>
+
+        <button type="button" class="btn-classification" onclick="openForm4()">Modify Gender</button>
+        <button type="button" class="btn-publication" onclick="openForm5()">Modify D.O.B</button>
+        <button type="button" class="btn-category" onclick="openForm6()">Modify Father's Name</button>
+        <button type="button" class="btn-year" onclick="openForm7()">Modify Spouse Name</button>
+        <button type="button" class="btn-pages" onclick="openForm8()">Modify Email</button>
+        <button type="button" class="btn-cost" onclick="openForm9()">Modify Contact</button>
+        <button type="button" class="btn-edition" onclick="openForm10()">Modify Address</button>
+        <button type="button" class="btn-copies" onclick="openForm11()">Modify City </button>
+        <button type="button" class="btn-address" onclick="openForm12()">Modify Has Left</button>
+ <button type="button" class="btn-author0" onclick="openForm3()">Modify Teaching staff</button>
+        
+
+
+<div style="position:absolute;top:22%;left:55%;margin:-100px 0 0 -150px;">
+        {% for message in messages %}
+      <h6><i><font color="red">{{message}}</font></i></h6>
+        {% endfor %}</div>
+
+
+      <div class="form-popup" id="ModifyDOJ">
+        <form  method="POST" action="/update_employ" class="form-container">
+            {%csrf_token%}
+          <h2>Enter the following details</h2>
+          <label for="a_id">Employee id</label><br>
+          <input type="text" name="e_id" placeholder="Enter *" required><br>
+          <label for="doj">Date of Joining</label><br>
+          <input type="date" name="doj" placeholder="Enter *" required><br>
+          <button type="submit" class="btn btn-change" onclick="myFunction()">Change Date Of Joining</button>
+          <button type="button" class="btn cancel btn-change" onclick="closeForm()">Close</button>
+        </form>
+      </div>
+      <div class="form-popup" id="ModifyName">
+        <form  method="POST" action="/update_employ" class="form-container">
+            {%csrf_token%}
+          <h2>Enter the following details</h2>
+          <label for="a_id">Employee id</label><br>
+          <input type="text" name="e_id" placeholder="Enter *" required><br>
+          <label for="name">Employee Name</label><br>
+          <input type="text" name="name"  style="text-transform: capitalize;" placeholder="Enter Employee Name*" required><br>
+          <button type="submit" class="btn btn-change" onclick="myFunction()">Change Employee Name</button>
+          <button type="button" class="btn cancel btn-change" onclick="closeForm2()">Close</button>
+        </form>
+      </div>
+      <div class="form-popup" id="ModifyDisName">
+        <form   method="POST" action="/update_employ" class="form-container">
+            {%csrf_token%}
+          <h2>Enter the following details</h2>
+          <label for="a_id">Employee id</label><br>
+          <input type="text" name="e_id" placeholder="Enter *" required><br>
+          <label >Teaching Staff</label><br>
+
+            <input type="radio" id="no" name="incharge" value="no" checked>
+
+            <label for="no">No</label><br>
+
+            <input type="radio" id="yes"  name="incharge" value="yes">
+
+            <label for="yes">Yes</label>
+          <button type="submit" class="btn btn-change" onclick="myFunction()">Change Incharge</button>
+          <button type="button" class="btn cancel btn-change" onclick="closeForm3()">Close</button>
+        </form>
+      </div>
+      <div class="form-popup" id="ModifyGender">
+         <form   method="POST" action="/update_employ" class="form-container">
+            {%csrf_token%}
+          <h2>Enter the following details</h2>
+          <label for="a_id">Employee id</label><br>
+          <input type="text" name="e_id" placeholder="Enter *" required><br>
+          <label for="gender">Gender</label><br>
+          <input type="radio" id="male" name="gender" value="male" checked>
+
+          <label for="male">Male</label><br>
+                    
+          <input type="radio" id="female"  name="gender" value="female">
+                    
+          <label for="female">Female</label>
+                
+          <button type="submit" class="btn btn-change" onclick="myFunction()">Change Gender</button>
+          <button type="button" class="btn cancel btn-change" onclick="closeForm4()">Close</button>
+        </form>
+      </div>
+      <div class="form-popup" id="ModifyDOB">
+        <form   method="POST" action="/update_employ" class="form-container">
+            {%csrf_token%}
+          <h2>Enter the following details</h2>
+          <label for="a_id">Employee id</label><br>
+          <input type="text" name="e_id" placeholder="Enter *" required><br>
+          <label for="dob">Date of Birth</label><br>
+          <input type="date" name="dob" placeholder="Enter Date of Birth*" required><br>
+          <button type="submit" class="btn btn-change" onclick="myFunction()">Change Date of Birth</button>
+          <button type="button" class="btn cancel btn-change" onclick="closeForm5()">Close</button>
+        </form>
+      </div>
+      <div class="form-popup" id="ModifyFather">
+        <form   method="POST" action="/update_employ" class="form-container">
+            {%csrf_token%}
+          <h2>Enter the following details</h2>
+          <label for="a_id">Employee id</label><br>
+          <input type="text" name="e_id" placeholder="Enter *" required><br>
+          <label for="father">Father's Name</label><br>
+          <input type="text" name="father"  style="text-transform: capitalize;" placeholder="Enter Father's Name*" required><br>
+          <button type="submit" class="btn btn-change" onclick="myFunction()">Change Father's Name</button>
+          <button type="button" class="btn cancel btn-change" onclick="closeForm6()">Close</button>
+        </form>
+      </div>
+      <div class="form-popup" id="ModifySpouse">
+        <form   method="POST" action="/update_employ" class="form-container">
+            {%csrf_token%}
+          <h2>Enter the following details</h2>
+          <label for="a_id">Employee id</label><br>
+          <input type="text" name="e_id" placeholder="Enter *" required><br>
+          <label for="spouse">Spouse Name</label><br>
+          <input type="text" name="spouse"  style="text-transform: capitalize;" placeholder="Enter Spouse Name*" required><br>
+          <button type="submit" class="btn btn-change" onclick="myFunction()">Change Spouse Name</button>
+          <button type="button" class="btn cancel btn-change" onclick="closeForm7()">Close</button>
+        </form>
+      </div>
+      <div class="form-popup" id="ModifyMail">
+        <form  method="POST" action="/update_employ" class="form-container">
+            {%csrf_token%}
+          <h2>Enter the following details</h2>
+          <label for="a_id">Employee id</label><br>
+          <input type="text" name="e_id" placeholder="Enter *" required><br>
+          <label for="mail">E-Mail</label><br>
+          <input type="email" name="email" placeholder="Enter E-Mail*" required><br>
+          <button type="submit" class="btn btn-change" onclick="myFunction()">Change Mail</button>
+          <button type="button" class="btn cancel btn-change" onclick="closeForm8()">Close</button>
+        </form>
+      </div>
+      <div class="form-popup" id="ModifyContact">
+        <form   method="POST" action="/update_employ" class="form-container">
+            {%csrf_token%}
+          <h2>Enter the following details</h2>
+          <label for="a_id">Employee id</label><br>
+          <input type="text" name="e_id" placeholder="Enter *" required><br>
+          <label for="contact">Contact</label><br>
+          <input type="tel" name="contact" placeholder="Enter Contact(P)*"><br>
+
+          <button type="submit" class="btn btn-change" onclick="myFunction()">Change Contact</button>
+          <button type="button" class="btn cancel btn-change" onclick="closeForm9()">Close</button>
+        </form>
+      </div>
+      <div class="form-popup" id="ModifyAddress">
+        <form   method="POST" action="/update_employ" class="form-container">
+            {%csrf_token%}
+          <h2>Enter the following details</h2>
+          <label for="a_id">Employee id</label><br>
+          <input type="text" name="e_id" placeholder="Enter *" required><br>
+          <label for="Address">Address</label><br>
+          <input type="text" name="address" style="text-transform: capitalize;"  placeholder="Enter Address*"><br>
+
+          <button type="submit" class="btn btn-change" onclick="myFunction()">Change Weight</button>
+          <button type="button" class="btn cancel btn-change" onclick="closeForm10()">Close</button>
+        </form>
+      </div>
+      <div class="form-popup" id="ModifyCity">
+        <form   method="POST" action="/update_employ" class="form-container">
+            {%csrf_token%}
+          <h2>Enter the following details</h2>
+          <label for="a_id">Employee id</label><br>
+          <input type="text" name="e_id" placeholder="Enter *" required><br>
+          <label for="city">City</label><br>
+          <input type="text" name="city"  style="text-transform: capitalize;" placeholder="Enter City*"><br>
+
+          <label for="state">State</label><br>
+          <input type="text" name="state"  style="text-transform: capitalize;" placeholder="Enter State*"><br>
+          <button type="submit" class="btn btn-change" onclick="myFunction()">Change City</button>
+          <button type="button" class="btn cancel btn-change" onclick="closeForm11()">Close</button>
+        </form>
+      </div>
+
+      <div class="form-popup" id="ModifyLeft">
+        <form  method="POST" action="/update_employ" class="form-container">
+            {%csrf_token%}
+          <h2>Enter the following details</h2>
+          <label for="a_id">Employee id</label><br>
+          <input type="text" name="e_id" placeholder="Enter *" required><br>
+          <label >Has Left</label><br>
+            
+            <input type="radio" id="no" name="has_left" value="no" checked>
+          
+            <label for="no">No</label><br>
+            
+            <input type="radio" id="yes"  name="has_left" value="yes">
+            
+            <label for="yes">Yes</label>
+          <button type="submit" class="btn btn-change" onclick="myFunction()">Change Left</button>
+          <button type="button" class="btn cancel btn-change" onclick="closeForm12()">Close</button>
+        </form>
+      </div>
+
+
+
+
+      <script>
+        function Scan() {
+            document.getElementById("Scan").style.display = "none";
+        }
+
+
+      function openForm() {
+        document.getElementById("ModifyDOJ").style.display = "block";
+        document.getElementById("ModifyName").style.display = "none";
+        document.getElementById("ModifyDisName").style.display = "none";
+        document.getElementById("ModifyGender").style.display = "none";
+        document.getElementById("ModifyDOB").style.display = "none";
+        document.getElementById("ModifyFather").style.display = "none";
+        document.getElementById("ModifySpouse").style.display = "none";
+        document.getElementById("ModifyMail").style.display = "none";
+        document.getElementById("ModifyContact").style.display = "none";
+        document.getElementById("ModifyAddress").style.display = "none";
+        document.getElementById("ModifyCity").style.display = "none";
+        document.getElementById("ModifyLeft").style.display = "none";
+        document.getElementById("ModifyIncharge").style.display = "none";
+      }
+
+
+      function openForm2() {
+         document.getElementById("ModifyName").style.display = "block";
+        document.getElementById("ModifyDOJ").style.display = "none";
+        document.getElementById("ModifyDisName").style.display = "none";
+        document.getElementById("ModifyGender").style.display = "none";
+        document.getElementById("ModifyDOB").style.display = "none";
+        document.getElementById("ModifyFather").style.display = "none";
+        document.getElementById("ModifySpouse").style.display = "none";
+        document.getElementById("ModifyMail").style.display = "none";
+        document.getElementById("ModifyContact").style.display = "none";
+        document.getElementById("ModifyAddress").style.display = "none";
+        document.getElementById("ModifyCity").style.display = "none";
+        document.getElementById("ModifyLeft").style.display = "none";
+        document.getElementById("ModifyIncharge").style.display = "none";
+      }
+
+      function openForm3() {
+        document.getElementById("ModifyDisName").style.display = "block";
+        document.getElementById("ModifyDOJ").style.display = "none";
+        document.getElementById("ModifyName").style.display = "none";
+        document.getElementById("ModifyGender").style.display = "none";
+        document.getElementById("ModifyDOB").style.display = "none";
+        document.getElementById("ModifyFather").style.display = "none";
+        document.getElementById("ModifySpouse").style.display = "none";
+        document.getElementById("ModifyMail").style.display = "none";
+        document.getElementById("ModifyContact").style.display = "none";
+        document.getElementById("ModifyAddress").style.display = "none";
+        document.getElementById("ModifyCity").style.display = "none";
+        document.getElementById("ModifyLeft").style.display = "none";
+        document.getElementById("ModifyIncharge").style.display = "none";
+      }
+
+      function openForm4()     {
+        document.getElementById("ModifyGender").style.display = "block";
+        document.getElementById("ModifyDOJ").style.display = "none";
+        document.getElementById("ModifyName").style.display = "none";
+        document.getElementById("ModifyDisName").style.display = "none";
+        document.getElementById("ModifyDOB").style.display = "none";
+        document.getElementById("ModifyFather").style.display = "none";
+        document.getElementById("ModifySpouse").style.display = "none";
+        document.getElementById("ModifyMail").style.display = "none";
+        document.getElementById("ModifyContact").style.display = "none";
+        document.getElementById("ModifyAddress").style.display = "none";
+        document.getElementById("ModifyCity").style.display = "none";
+        document.getElementById("ModifyLeft").style.display = "none";
+        document.getElementById("ModifyIncharge").style.display = "none";
+      }
+
+      function openForm5() {
+        document.getElementById("ModifyDOB").style.display = "block";
+        document.getElementById("ModifyDOJ").style.display = "none";
+        document.getElementById("ModifyName").style.display = "none";
+        document.getElementById("ModifyDisName").style.display = "none";
+        document.getElementById("ModifyGender").style.display = "none";
+        document.getElementById("ModifyFather").style.display = "none";
+        document.getElementById("ModifySpouse").style.display = "none";
+        document.getElementById("ModifyMail").style.display = "none";
+        document.getElementById("ModifyContact").style.display = "none";
+        document.getElementById("ModifyAddress").style.display = "none";
+        document.getElementById("ModifyCity").style.display = "none";
+        document.getElementById("ModifyLeft").style.display = "none";
+        document.getElementById("ModifyIncharge").style.display = "none";
+      }
+
+
+            function openForm6() {
+              document.getElementById("ModifyFather").style.display = "block";
+        document.getElementById("ModifyDOJ").style.display = "none";
+        document.getElementById("ModifyName").style.display = "none";
+        document.getElementById("ModifyDisName").style.display = "none";
+        document.getElementById("ModifyGender").style.display = "none";
+        document.getElementById("ModifyDOB").style.display = "none";
+        document.getElementById("ModifySpouse").style.display = "none";
+        document.getElementById("ModifyMail").style.display = "none";
+        document.getElementById("ModifyContact").style.display = "none";
+        document.getElementById("ModifyAddress").style.display = "none";
+        document.getElementById("ModifyCity").style.display = "none";
+        document.getElementById("ModifyLeft").style.display = "none";
+        document.getElementById("ModifyIncharge").style.display = "none";
+            }
+
+
+
+                        function openForm7() {
+                          document.getElementById("ModifySpouse").style.display = "block";
+        document.getElementById("ModifyDOJ").style.display = "none";
+        document.getElementById("ModifyName").style.display = "none";
+        document.getElementById("ModifyDisName").style.display = "none";
+        document.getElementById("ModifyGender").style.display = "none";
+        document.getElementById("ModifyDOB").style.display = "none";
+        document.getElementById("ModifyFather").style.display = "none";
+        document.getElementById("ModifyMail").style.display = "none";
+        document.getElementById("ModifyContact").style.display = "none";
+        document.getElementById("ModifyAddress").style.display = "none";
+        document.getElementById("ModifyCity").style.display = "none";
+        document.getElementById("ModifyLeft").style.display = "none";
+        document.getElementById("ModifyIncharge").style.display = "none";
+                        }
+                        function openForm8() {
+                          document.getElementById("ModifyMail").style.display = "block";
+        document.getElementById("ModifyDOJ").style.display = "none";
+        document.getElementById("ModifyName").style.display = "none";
+        document.getElementById("ModifyDisName").style.display = "none";
+        document.getElementById("ModifyGender").style.display = "none";
+        document.getElementById("ModifyDOB").style.display = "none";
+        document.getElementById("ModifyFather").style.display = "none";
+        document.getElementById("ModifySpouse").style.display = "none";
+        document.getElementById("ModifyContact").style.display = "none";
+        document.getElementById("ModifyAddress").style.display = "none";
+        document.getElementById("ModifyCity").style.display = "none";
+        document.getElementById("ModifyLeft").style.display = "none";
+        document.getElementById("ModifyIncharge").style.display = "none";
+                      }
+                      function openForm9() {
+                        document.getElementById("ModifyContact").style.display = "block";
+        document.getElementById("ModifyDOJ").style.display = "none";
+        document.getElementById("ModifyName").style.display = "none";
+        document.getElementById("ModifyDisName").style.display = "none";
+        document.getElementById("ModifyGender").style.display = "none";
+        document.getElementById("ModifyDOB").style.display = "none";
+        document.getElementById("ModifyFather").style.display = "none";
+        document.getElementById("ModifySpouse").style.display = "none";
+        document.getElementById("ModifyMail").style.display = "none";
+        document.getElementById("ModifyAddress").style.display = "none";
+        document.getElementById("ModifyCity").style.display = "none";
+        document.getElementById("ModifyLeft").style.display = "none";
+        document.getElementById("ModifyIncharge").style.display = "none";
+                      
+                      }
+                      function openForm10() {
+                        document.getElementById("ModifyAddress").style.display = "block";
+        document.getElementById("ModifyDOJ").style.display = "none";
+        document.getElementById("ModifyName").style.display = "none";
+        document.getElementById("ModifyDisName").style.display = "none";
+        document.getElementById("ModifyGender").style.display = "none";
+        document.getElementById("ModifyDOB").style.display = "none";
+        document.getElementById("ModifyFather").style.display = "none";
+        document.getElementById("ModifySpouse").style.display = "none";
+        document.getElementById("ModifyMail").style.display = "none";
+        document.getElementById("ModifyContact").style.display = "none";
+        document.getElementById("ModifyCity").style.display = "none";
+        document.getElementById("ModifyLeft").style.display = "none";
+        document.getElementById("ModifyIncharge").style.display = "none";
+                      }
+                       function openForm11() {
+                       document.getElementById("ModifyCity").style.display = "block";
+        document.getElementById("ModifyDOJ").style.display = "none";
+        document.getElementById("ModifyName").style.display = "none";
+        document.getElementById("ModifyDisName").style.display = "none";
+        document.getElementById("ModifyGender").style.display = "none";
+        document.getElementById("ModifyDOB").style.display = "none";
+        document.getElementById("ModifyFather").style.display = "none";
+        document.getElementById("ModifySpouse").style.display = "none";
+        document.getElementById("ModifyMail").style.display = "none";
+        document.getElementById("ModifyContact").style.display = "none";
+        document.getElementById("ModifyAddress").style.display = "none";
+        document.getElementById("ModifyLeft").style.display = "none";
+        document.getElementById("ModifyIncharge").style.display = "none";
+                      }
+                       function openForm12() {
+                        document.getElementById("ModifyLeft").style.display = "block";
+        document.getElementById("ModifyDOJ").style.display = "none";
+        document.getElementById("ModifyName").style.display = "none";
+        document.getElementById("ModifyDisName").style.display = "none";
+        document.getElementById("ModifyGender").style.display = "none";
+        document.getElementById("ModifyDOB").style.display = "none";
+        document.getElementById("ModifyFather").style.display = "none";
+        document.getElementById("ModifySpouse").style.display = "none";
+        document.getElementById("ModifyMail").style.display = "none";
+        document.getElementById("ModifyContact").style.display = "none";
+        document.getElementById("ModifyAddress").style.display = "none";
+        document.getElementById("ModifyCity").style.display = "none";
+        document.getElementById("ModifyIncharge").style.display = "none";
+                      }
+                      function openForm13() {
+                        document.getElementById("ModifyIncharge").style.display = "block";
+        document.getElementById("ModifyDOJ").style.display = "none";
+        document.getElementById("ModifyName").style.display = "none";
+        document.getElementById("ModifyDisName").style.display = "none";
+        document.getElementById("ModifyGender").style.display = "none";
+        document.getElementById("ModifyDOB").style.display = "none";
+        document.getElementById("ModifyFather").style.display = "none";
+        document.getElementById("ModifySpouse").style.display = "none";
+        document.getElementById("ModifyMail").style.display = "none";
+        document.getElementById("ModifyContact").style.display = "none";
+        document.getElementById("ModifyAddress").style.display = "none";
+        document.getElementById("ModifyCity").style.display = "none";
+        document.getElementById("ModifyLeft").style.display = "none";
+                      }
+                      
+      function closeForm() {
+        document.getElementById("ModifyDOJ").style.display = "none";
+      }
+      function closeForm2() {
+        document.getElementById("ModifyName").style.display = "none";
+      }
+
+      function closeForm3() {
+        document.getElementById("ModifyDisName").style.display = "none";
+      }
+
+      function closeForm4() {
+        document.getElementById("ModifyGender").style.display = "none";
+      }
+
+      function closeForm5() {
+        document.getElementById("ModifyDOB").style.display = "none";
+      }
+      function closeForm6() {
+        document.getElementById("ModifyFather").style.display = "none";
+      }
+      function closeForm7() {
+        document.getElementById("ModifySpouse").style.display = "none";
+      }
+
+      function closeForm8() {
+        document.getElementById("ModifyMail").style.display = "none";
+      }
+
+      function closeForm9() {
+        document.getElementById("ModifyContact").style.display = "none";
+      }
+
+      function closeForm10() {
+        document.getElementById("ModifyAddress").style.display = "none";
+      }
+      function closeForm11() {
+        document.getElementById("ModifyCity").style.display = "none";
+      }
+      function closeForm12() {
+        document.getElementById("ModifyLeft").style.display = "none";
+      }
+
+      function closeForm13() {
+        document.getElementById("ModifyIncharge").style.display = "none";
+      }
+
+      function warn() {
+      confirm("Do you really want to log out of this session!!!");
+
+      }
+
+  </script>
+
+  </body>
+</html>

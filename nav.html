@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+<head>
+ {% load static %}
+  <meta charset="utf-8">
+
+  <title></title>
+  <style>
+    .log1 {
+  color: #fff;
+  position: fixed;
+  left: 1050px;
+  top: 10px;
+}
+  </style>
+
+  <script src="https://kit.fontawesome.com/6f277702bf.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="{%static 'css\styles.css'%}">
+
+</head>
+
+<body>
+  
+  <div class="container-fluid p3 info">
+
+    <div class="row">
+
+      <div class="col d-flex justify-content-center align-items-center flex-wrap">
+
+        <h2 class="primary-color info p-2 text-capitalize">SIE Library Management System</h2>
+
+        <div class="container ml-auto">
+<form action="/handle_logout" method="POST">
+  {%csrf_token%}
+          <button type="submit"  class="btn btn-outline-dark align-items-end log1" onclick="warn()">Log Out</button></a>
+</form>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+
+        <span class="navbar-toggler-icon"></span>
+
+      </button>
+
+      <a class="navbar-brand" href="#">Library</a>
+
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+
+        <ul class="navbar-nav">
+
+          <li class="nav-item dropdown">
+
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup   ="true" aria-expanded="false">
+            
+             Master
+            
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+
+              <a class="dropdown-item" href="/add_stds">Student Master</a>
+
+              <hr>
+
+              <a class="dropdown-item" href="/add_employ">Employee Master</a>
+
+              <hr>
+
+              <a class="dropdown-item" href="/add_books">Book Master</a>
+
+            </div>
+
+          </li>
+
+          <li class="nav-item dropdown">
+
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            
+              Transactions
+
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+
+              <a class="dropdown-item" href="/get_i_s">Issue Book(Student)</a>
+            
+              <a class="dropdown-item" href="/get_r_s">Return Book(Student)</a>
+            
+              <hr>
+            
+              <a class="dropdown-item" href="/get_i_e">Issue Book(Teacher)</a>
+            
+              <a class="dropdown-item" href="/get_r_e">Return Book(Teacher)</a>
+          
+            </div>
+        
+          </li>
+
+          <li class="nav-item dropdown">
+
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+              Periodicals
+
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+
+              <a class="dropdown-item" href="/newspapers">Newspaper</a>
+            
+              <a class="dropdown-item" href="/journal">Journal/Magazine</a>
+            
+              <hr>
+            
+              <a class="dropdown-item" href="#">E-Journals</a>
+          
+            </div>
+        
+          </li>
+
+          <li >
+
+            <a class="nav-link " href="/main_bb" id="navbarDropdownMenuLink" aria-expanded="false">
+
+              Book Bank
+
+            </a>
+
+          </li>
+
+          <li>
+          
+            <a class="nav-link " href="/barcode_gen" id="navbarDropdownMenuLink"  aria-expanded="false">
+
+              Barcode generator
+          
+            </a>
+
+          </li>
+
+          <li class="nav-item dropdown">
+
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Report
+          
+            </a>
+
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          
+            <a class="dropdown-item" href="/issue_register_s">Issue/Return Register(S)</a>
+          
+           <!-- <a class="dropdown-item" href="/return_register_s">Return Register(S)</a>-->
+              <hr>
+            <a class="dropdown-item" href="/issue_register_e">Issue/Return Register(E)</a>
+
+          <!-- <a class="dropdown-item" href="/return_register_e">Return Register(E)</a>-->
+              <hr>
+            <a class="dropdown-item" href="/over_due_s">Overdue Register(S)</a>
+            <a class="dropdown-item" href="/pending_reg_s">Pending  Register(S)</a>
+
+          
+
+          
+            <hr>
+                <a class="dropdown-item" href="/over_due_e">Overdue Register(E)</a>
+            <a class="dropdown-item" href="/pending_reg_e">Pending  Register(E)</a>
+
+
+
+
+            <hr>
+
+            <a class="dropdown-item" href="/accession_register">Accession Register</a>
+             <a class="dropdown-item" href="/withdraw_register">Write Off Register</a>
+            <hr>
+
+            <a class="dropdown-item" href="/newspaper_register">Newspaper Register</a>
+
+            <a class="dropdown-item" href="/journal_register">Journals Register</a>
+
+            <a class="dropdown-item" href="/magazine_register">Magzine Register</a>
+             <hr>
+
+            <a class="dropdown-item" href="/student_list">Student Register</a>
+
+            <a class="dropdown-item" href="/employee_list">Employee Register</a>
+
+
+
+
+
+
+          <hr>
+          <a class="dropdown-item " href="/withdrawal_books" >
+
+              Write Off
+
+            </a>
+          <a class="dropdown-item " href="/write_in_books" >
+
+              Write In
+
+            </a>
+
+
+          
+
+          
+          </div>
+        
+        </li>
+           <!--<li>
+
+            <a class="nav-link " href="/withdrawal_books" id="navbarDropdownMenuLink"  aria-expanded="false">
+
+              Write Off
+
+            </a>
+
+          </li>
+            <li>
+
+            <a class="nav-link " href="/write_in_books" id="navbarDropdownMenuLink"  aria-expanded="false">
+
+              Write In
+
+            </a>
+
+          </li>-->
+      </ul>
+
+    </nav>
+
+  </div>
+
+  <div>
+
+    <nav class="navbar-expand-lg navbar-dark bg-danger">
+
+      <ul class="nav-list">
+
+        <li class="nav-list-item">
+
+          <i class="fas fa-user-friends fa-3x f1"></i>
+
+          <a href="get_i_s" class="nav-link">Issue(S)</a>
+
+        </li>
+
+        <li class="nav-list-item">
+
+          <i class="fas fa-user-friends fa-3x f1"></i>
+          
+          <a href="get_r_s" class="nav-link">Return(S)</a>
+
+        </li>
+
+        <li class="nav-list-item">
+
+          <i class="fas fa-chalkboard-teacher fa-3x f1"></i>
+
+          <a href="/get_i_e" class="nav-link">Issue(E)</a>
+
+        </li>
+
+        <li class="nav-list-item">
+
+          <i class="fas fa-chalkboard-teacher fa-3x f1"></i>
+
+          <a href="/get_r_e" class="nav-link">Return(E)</a>
+
+        </li>
+
+        
+        <li class="nav-list-item">
+          
+          <i class="fas fa-exclamation-triangle fa-3x f2"></i>
+          
+          <a href="/barcode_gen" class="nav-link">Barcode Generator.</a>
+        
+        </li>
+        
+        <li class="nav-list-item">
+          
+          <i class="fas fa-search fa-3x f2"></i>
+          
+          <a href="/std_emp_search" class="nav-link">Student/Employee</a>
+        
+        </li>
+ <!--<li class="nav-list-item">
+
+          <i class="fas fa-search fa-3x f3"></i>
+
+          <a href="/pending_reg" class="nav-link">Employee Search</a>
+
+        </li>-->
+
+
+      </ul>
+
+    </nav>
+
+  </div>
+  <div style="position:absolute;top:55%;left:50%;margin:-100px 0 0 -150px;">
+        {% for message in messages %}
+      <h6><i><font color="red">{{message}}</font></i></h6>
+        {% endfor %}</div>
+
+  <script>
+    function warn() {
+      confirm("Do you really want to log out of this session!!!");
+
+    }
+  </script>
+
+</body>
+
+</html>

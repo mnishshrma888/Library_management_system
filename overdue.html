@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Report</title>
+</head>
+<body>
+
+
+<table id="test" style="text-align:center">
+    <tr>
+        <th>Accession_number</th>
+        <th>Title</th>
+        <th>Roll No/Emp Id </th>
+        <th>Issued To</th>
+        <th>Issue date</th>
+        <th>Return Date</th>
+        <th>Returned</th>
+        <th>Fine</th>
+
+
+
+    </tr>
+    {% for item in query_results %}
+
+    <tr>
+        <td>{{ item.accession_id}}</td>
+        <td>{{item.title}}</td>
+        <td>{{item.student_id}}{{item.emp_id}}</td>
+        <td>{{item.std_name}}{{item.emp_name}}</td>
+        <td>{{ item.issue_date}}</td>
+        <td>{{ item.return_date}}</td>
+        <td>{{ item.returned}}</td>
+
+
+
+
+    </tr>
+ {% endfor %}
+
+</table>
+
+
+<input type="button" id="btnExport" class="btn" onclick="pdf()" value="Print" />
+<script type="text/javascript">
+    function pdf(){
+    window.print();
+}
+</script>
+</body>
+
+
+</html>

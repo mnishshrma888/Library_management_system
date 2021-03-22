@@ -1,0 +1,107 @@
+from django.urls import path
+from. import views
+
+
+urlpatterns=[
+    path('',views.home,name='home'),
+    path('main', views.main, name='main'),
+    path('add_books',views.add_books,name='add_books'),
+    path('update_books',views.update_books,name='update_books'),
+    path('delete_books',views.delete_books,name='delete_books'),
+    path('withdrawal_books', views.withdrawal_books, name='withdrawal_books'),
+    path('get_d_w', views.get_d_w, name='get_d_w'),
+    path('add_stds',views.add_stds,name='add_stds'),
+    path('update_stds',views.update_stds,name='update_stds'),
+    path('delete_stds',views.delete_stds,name='delete_stds'),
+    path('get_d_s', views.get_d_s, name='get_d_s'),
+    path('add_employ',views.add_employ,name='add_employ'),
+    path('update_employ',views.update_employ,name='update_employ'),
+    path('delete_employ',views.delete_employ,name='delete_employ'),
+    path('get_d_e', views.get_d_e, name='get_d_e'),
+    path('issue_books_s',views.issue_books_s,name='issue_books_s'),
+    path('issue_books_e', views.issue_books_e, name='issue_books_e'),
+    path('return_books_s',views.return_books_s,name='return_books_s'),
+    path('return_books_e', views.return_books_e, name='return_books_e'),
+    path('notification',views.notification,name='notification'),
+    path('click_w', views.click_w, name='click_w'),
+    path('click_u',views.click_u,name='click_u'),
+    path('get_u', views.get_u, name='get_u'),
+    path('click_d',views.click_d,name='click_d'),
+    path('get_d_b', views.get_d_b, name='get_d_b'),
+    path('click_i_s',views.click_i_s,name='click_i_s'),
+    path('get_i_s', views.get_i_s, name='get_i_s'),
+    path('click_i_e',views.click_i_e,name='click_i_e'),
+    path('get_i_e', views.get_i_e, name='get_i_e'),
+    path('click_r_e', views.click_r_e, name='click_r_e'),
+    path('get_r_e', views.get_r_e, name='get_r_e'),
+    path('click_r_s',views.click_r_s,name='click_r_s'),
+    path('get_r_s', views.get_r_s, name='get_r_s'),
+    path('qr_gen', views.qr_gen, name='qr_gen'),
+    path('barcode_gen',views.barcode_gen, name='barcode_gen'),
+    path('newspapers', views.newspapers, name='newspapers'),
+    path('journal', views.journal, name='journal'),
+
+    path('issue_register_s', views.issue_register_s, name='issue_register_s'),
+    path('return_register_s', views.return_register_s, name='return_register_s'),
+    path('issue_register_e', views.issue_register_e, name='issue_register_e'),
+    path('return_register_e', views.return_register_e, name='return_register_e'),
+    path('withdraw_register', views.withdraw_register, name='withdraw_register'),
+    path('accession_register', views.accession_register, name='accession_register'),
+    path('over_due_s', views.over_due_s, name='over_due_s'),
+    path('pending_reg_s', views.pending_reg_s, name='pending_reg_s'),
+    path('over_due_e', views.over_due_e, name='over_due_e'),
+    path('pending_reg_e', views.pending_reg_e, name='pending_reg_e'),
+    path('journal_register', views.journal_register, name='journal_register'),
+    path('newspaper_register', views.newspaper_register, name='newspaper_register'),
+    path('magazine_register', views.magazine_register, name='magazine_register'),
+
+    path('signup',views.signup,name='signup'),
+    path('handle_login',views.handle_login,name='handle_login'),
+    path('handle_logout',views.handle_logout,name='handle_logout'),
+
+    path('add_bookbank', views.add_bookbank, name='add_bookbank'),
+    path('update_bookbank', views.update_bookbank, name='update_bookbank'),
+    path('delete_bookbank', views.delete_bookbank, name='delete_bookbank'),
+    path('withdrawal_bookbank', views.withdrawal_bookbank, name='withdrawal_bookbank'),
+
+    path('click_w_bb', views.click_w_bb, name='click_w_bb'),
+    path('get_d_w_b', views.get_d_w_b, name='get_d_w_b'),
+    path('click_u_bb', views.click_u_bb, name='click_u_bb'),
+    path('get_u_bb', views.get_u_bb, name='get_u_bb'),
+    path('click_d_bb', views.click_d_bb, name='click_d_bb'),
+    path('get_d_bb', views.get_d_bb, name='get_d_bb'),
+    path('qr_gen_bb', views.qr_gen_bb, name='qr_gen_bb'),
+    path('barcode_gen_bb', views.barcode_gen_bb, name='barcode_gen_bb'),
+
+    path('click_i_s_bb', views.click_i_s_bb, name='click_i_s_bb'),
+    path('get_i_s_bb', views.get_i_s_bb, name='get_i_s_bb'),
+    path('issue_books_s_bb', views.issue_books_s_bb, name='issue_books_s_bb'),
+
+    path('click_r_s_bb', views.click_r_s_bb, name='click_r_s_bb'),
+    path('get_r_s_bb', views.get_r_s_bb, name='get_r_s_bb'),
+    path('return_books_s_bb', views.return_books_s_bb, name='return_books_s_bb'),
+
+    path('issue_register_bb', views.issue_register_bb, name='issue_register_bb'),
+    path('return_register_bb', views.return_register_bb, name='return_register_bb'),
+    path('withdraw_register_bb', views.withdraw_register_bb, name='withdraw_register_bb'),
+    path('accession_register_bb', views.accession_register_bb, name='accession_register_bb'),
+    path('over_due_bb', views.over_due_bb, name='over_due_bb'),
+    path('pending_bb', views.pending_bb, name='pending_bb'),
+
+    path('main_bb', views.main_bb, name='main_bb'),
+
+    path('student_list', views.student_list, name='student_list'),
+    path('employee_list', views.employee_list, name='employee_list'),
+
+    path('write_in_books', views.write_in_books, name='write_in_books'),
+    path('click_w_r', views.click_w_r, name='click_w_r'),
+    path('get_d_w_r', views.get_d_w_r, name='get_d_w_r'),
+
+    path('write_in_bookbank', views.write_in_bookbank, name='write_in_bookbank'),
+    path('click_w_rb', views.click_w_rb, name='click_w_rb'),
+    path('get_d_w_rb', views.get_d_w_rb, name='get_d_w_rb'),
+
+    path('std_emp_search', views.std_emp_search, name='std_emp_search'),
+
+
+]

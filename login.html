@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+      {% load static %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  
+    <meta charset="utf-8">
+    <title></title>
+   <style>
+    .info{
+font-family: serif;
+font-size: 30px;
+background-color: #dc3545;
+align-items: center;
+padding-left: 400px;
+  word-spacing: 0.6rem;
+  color: #fff;
+}
+
+.log {
+color: #fff;
+position: absolute;
+left: 500px;
+top: 10px;
+}
+.log .z{
+color: #fff;
+}
+.s1{
+width: 100%;
+margin-left: 5px;
+padding: 5px 50px;
+}
+.nav{
+background-color: #dc3545;
+padding-left: 300px;
+
+}
+.btnsearch{
+width: 10%;
+margin: 10px 2px;
+}
+
+
+.form-popup {
+display: none;
+position: absolute;
+top: 150px;
+left: 300px;
+border: 3px solid #f1f1f1;
+z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+max-width: 100%;
+padding: 10px;
+background-color: white;
+}
+
+.form-container input[type=text], .form-container input[type=password] {
+width: 100%;
+padding: 15px;
+margin: 5px 0 22px 0;
+border: none;
+background: #f1f1f1;
+}
+
+.form-container .btn {
+background-color: #4CAF50;
+color: white;
+padding: 16px 20px;
+border: none;
+cursor: pointer;
+width: 100%;
+margin-bottom:10px;
+opacity: 0.8;
+}
+.form-container .btn_cancel {
+background-color: red;
+color: white;
+padding: 16px 20px;
+border: none;
+cursor: pointer;
+width: 100%;
+margin-bottom:10px;
+opacity: 0.8;
+}
+
+    </style>
+        <script src="https://kit.fontawesome.com/6f277702bf.js" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+  </head>
+  <body>
+    <div class="container-fluid p3 info">
+      <div class="row">
+        <div class="col d-flex justify-content-between align-items-baseline flex-wrap">
+          <h2 class="primary-color info p-2 text-capitalize">Welcome to Library</h2>
+          <div class="container ml-auto">
+            <button type="button" id="login" class="btn btn-outline-dark log" onclick="openForm()">Log In</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid p3 nav">
+	<div class="row">
+        <div class="col">
+            <form method="get" action="/" class="form-inline" >
+                <input name="q" class="col-md-4 s1" type="text"  placeholder="Keywords: Publication, Ascession number" >
+                <input name="loc" class="col-md-4 s1" type="text"  placeholder="author, edition">
+                <button type="submit" class="btn btn-primary btnsearch"> <i class="fas fa-search"></i></button>
+            </form>
+        </div>
+    </div>
+</div>
+
+ <div style="position:absolute;top:55%;left:50%;margin:-100px 0 0 -150px;">
+        {% for message in messages %}
+      <h6><i><font color="red">{{message}}</font></i></h6>
+        {% endfor %}</div>
+
+
+
+      <div class="form-popup" id="LoginForm">
+        <form action="/handle_login" class="form-container" method="POST">
+            {%csrf_token%}
+          <h2><center>Enter the following details</center></h2>
+          <label for="Email">Email:</label><br>
+          <input type="text" name="Email" placeholder="Enter your Email*"><br>
+          <label for="psw">Password</label><br>
+          <input type="password" name="psw" placeholder="Password">
+         <button type="submit" class="btn">Login</button>
+          <button type="button" class="btn btn_cancel" onclick="closeForm()">Close</button>
+        </form>
+      </div>
+    <script>
+    function openForm() {
+      document.getElementById("LoginForm").style.display = "block";
+    }
+    function closeForm() {
+      document.getElementById("LoginForm").style.display = "none";
+    }
+    </script>
+  </body>
+</html>

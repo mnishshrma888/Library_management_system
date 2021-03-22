@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+      <style>
+.id3{
+  position: absolute;
+  top: 110px;
+  left: 400px;
+  width:480px;
+}
+
+
+      </style>
+      {% load static %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <link rel="stylesheet" href="{%static 'css\book.css'%}">
+  </head>
+  <body>
+    <div class="container-fluid p3 info">
+      <div class="row">
+        <div class="col d-flex justify-content-between align-items-baseline flex-wrap">
+          <h2 class="primary-color info p-2 text-capitalize">Write In Book Bank</h2>
+          <div class="container ml-auto">
+             <form action="/handle_logout" method="POST">
+  {%csrf_token%}
+          <button type="submit"  class="btn btn-outline-dark align-items-end log" onclick="warn()">Log Out</button></a>
+</form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="container">
+    <div class="row">
+        <div class="col-md-6 login-form-1">
+            <h3 class="head">Write In Book Bank</h3>
+            <form id="hide" class="form-container" action="/get_d_w_rb"  method="POST">
+            {%csrf_token%}
+          <div class="form-group">
+
+              <label >Accession Number</label>
+              <input type="text" name="accession_no" class="form-control" placeholder="Accession Number*" value="" />
+              <div class="form-control f1">{{param}}</div>
+
+            </div>
+
+           <div style="position:absolute;top:35%;left:60%;margin:-100px 0 0 -150px;">
+        {% for message in messages %}
+      <h6><i><font color="red">{{message}}</font></i></h6>
+        {% endfor %}</div>
+                      <div class="form-group">
+<a href="/click_w_rb"> <button type="button" class="btn ">Scan</button></a>
+              <button type="submit" class="btn" >Submit </button>
+
+                          <a href="/main_bb"> <button type="button" class="btn btn_cancel">Close</button></a>
+                          </div>
+
+            </form>
+
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>
